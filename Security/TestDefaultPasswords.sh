@@ -4,9 +4,9 @@
 # If any of these commands work and give back a username that ISN'T the user you're trying the script from, that account's password should be changed!
 
 # Usernames to test
-usernames=("access" "adm" "adm0" "adm1" "adm2" "adm3" "admin" "administrator" "ansible" "apache" "bb" "cisco" "cron" "daemon" "faculty" "ftp" "guest" "irc" "john" "master" "michael" "mike" "mysql" "nproc" "oracle" "oracle8" "postfix" "postgres" "postmaster" "proxy" "public" "root" "rpc" "sales" "shutdown" "squid" "sshd" "staff" "support" "sync" "sys" "syslog" "system" "test" "testuser" "tomcat" "toor" "user")
+usernames=("access" "adm" "adm0" "adm1" "adm2" "adm3" "admin" "administrator" "ansible" "apache" "bb" "cisco" "cron" "daemon" "default" "faculty" "ftp" "guest" "irc" "john" "master" "michael" "mike" "mysql" "nproc" "oracle" "oracle8" "placeholder" "postfix" "postgres" "postmaster" "proxy" "public" "root" "rpc" "sales" "shutdown" "squid" "sshd" "staff" "support" "sync" "sys" "syslog" "system" "test" "testuser" "tomcat" "toor" "user")
 # Passwords to test
-passwords=("1234" "12345" "123456" "1234567" "12345678" "abc123" "adm" "admin" "admin123" "administrator" "admins" "alpine" "baseball" "basketball" "Changem3" "changem3" "changeme" "cisco" "football" "hockey" "letmein" "linux" "login" "logon" "maintenance" "master" "pass" "Passw0rd" "passw0rd" "passwd" "password" "password123" "password123!" "password1234" "qwerty" "qwerty123" "root" "soccer" "support" "test" "test123" "test123!" "test1234" "toor" "user" "webadmin" "webmaster")
+passwords=("1234" "12345" "123456" "1234567" "12345678" "abc123" "adm" "admin" "admin123" "administrator" "admins" "alpine" "baseball" "basketball" "Changem3" "changem3" "changeme" "cisco" "default" "football" "hockey" "letmein" "linux" "login" "logon" "maintenance" "master" "pass" "Passw0rd" "passw0rd" "passwd" "password" "password123" "password123!" "password1234" "placeholder" "qwerty" "qwerty123" "root" "soccer" "support" "test" "test123" "test123!" "test1234" "testpass" "testpassword" "toor" "user" "webadmin" "webmaster")
 
 # For each password...
 for pass in "${passwords[@]}"; do
