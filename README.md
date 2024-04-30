@@ -1,5 +1,5 @@
 <div align="center">
- <h2># 🔧 Switchblade 🔧</h2>
+ <h2>🔧 Switchblade 🔧</h2>
   <sup>• a collection of useful shell scripts •</sup>
 
 ////
