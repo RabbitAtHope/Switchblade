@@ -7,3 +7,5 @@ sudo apt-get upgrade -y
 # Clean up
 sudo apt-get autoclean
 sudo apt-get autoremove -y
+
+echo "[Success] Updates installed."
