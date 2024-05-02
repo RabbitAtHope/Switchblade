@@ -11,9 +11,9 @@ echo "Checking for overly permissive [FTP]/[21] rules..."
 # Shorewall
 # sudo cat /etc/shorewall/rules | grep...
 # UFW
-sudo ufw status | grep "21 " 2> /dev/null | grep "ALLOW" | grep "Anywhere"
-sudo ufw status | grep "21/tcp " 2> /dev/null | grep "ALLOW" | grep "Anywhere"
-sudo ufw status | grep "FTP " 2> /dev/null | grep "ALLOW" | grep "Anywhere"
+sudo ufw status 2> /dev/null | grep "21 " | grep "ALLOW" | grep "Anywhere"
+sudo ufw status 2> /dev/null | grep "21/tcp " | grep "ALLOW" | grep "Anywhere"
+sudo ufw status 2> /dev/null | grep "FTP " | grep "ALLOW" | grep "Anywhere"
 
 echo ""
 
@@ -26,9 +26,9 @@ echo "Checking for overly permissive [SSH]/[22] rules..."
 # Shorewall
 # sudo cat /etc/shorewall/rules | grep...
 # UFW
-sudo ufw status | grep "22 " 2> /dev/null | grep "ALLOW" | grep "Anywhere"
-sudo ufw status | grep "22/tcp " 2> /dev/null | grep "ALLOW" | grep "Anywhere"
-sudo ufw status | grep "SSH " 2> /dev/null | grep "ALLOW" | grep "Anywhere"
+sudo ufw status 2> /dev/null | grep "22 " | grep "ALLOW" | grep "Anywhere"
+sudo ufw status 2> /dev/null | grep "22/tcp " | grep "ALLOW" | grep "Anywhere"
+sudo ufw status 2> /dev/null | grep "SSH " | grep "ALLOW" | grep "Anywhere"
 
 echo ""
 
