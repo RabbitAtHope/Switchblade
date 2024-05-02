@@ -39,9 +39,14 @@ echo ""
 
 echo "Searching the packet capture data for [unencrypted passwords]..."
 
+sudo tcpdump -r $OUTPUT_FILE -A | grep -i "pass:"
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "pass="
+sudo tcpdump -r $OUTPUT_FILE -A | grep -i "passwd:"
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "passwd="
+sudo tcpdump -r $OUTPUT_FILE -A | grep -i "password:"
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "password="
+sudo tcpdump -r $OUTPUT_FILE -A | grep -i "pwd:"
+sudo tcpdump -r $OUTPUT_FILE -A | grep -i "pwd="
 
 echo "[Success] Filtering complete."
 
