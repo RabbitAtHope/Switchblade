@@ -35,3 +35,11 @@ sudo find / -type f -iname .gitignore
 echo ""
 
 #//////////////////////////
+
+echo "Finding all [.gitmodules] files..."
+
+sudo find / -type f -iname .gitmodules
+
+echo ""
+
+#//////////////////////////
