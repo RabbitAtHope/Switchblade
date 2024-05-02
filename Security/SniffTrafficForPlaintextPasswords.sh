@@ -40,15 +40,26 @@ echo ""
 echo "Searching the packet capture data for [unencrypted passwords]..."
 
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "Pass:"
+sudo tcpdump -r $OUTPUT_FILE -A | grep -i "Pass="
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "pass:"
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "pass="
+
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "Passwd:"
+sudo tcpdump -r $OUTPUT_FILE -A | grep -i "Passwd="
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "passwd:"
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "passwd="
+
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "Password:"
+sudo tcpdump -r $OUTPUT_FILE -A | grep -i "Password="
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "password:"
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "password="
+
+sudo tcpdump -r $OUTPUT_FILE -A | grep -i "PWD:"
+sudo tcpdump -r $OUTPUT_FILE -A | grep -i "PWD="
+
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "Pwd:"
+sudo tcpdump -r $OUTPUT_FILE -A | grep -i "Pwd="
+
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "pwd:"
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "pwd="
 
