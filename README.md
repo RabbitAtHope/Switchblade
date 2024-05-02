@@ -4,6 +4,6 @@
 
 ////
 
-A collection of small, useful shell scripts for server maintenance and sysadmin work. Designed to give a one-click for tedious and repetitive tasks.
+A collection of small, useful Bash shell scripts for Linux server maintenance and sysadmin work, particularly Ubuntu LTS servers. Designed to give a one-click point-and-shoot for tedious and repetitive tasks.
 
 </div>
