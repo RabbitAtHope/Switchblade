@@ -10,6 +10,8 @@ echo "[Installing] updates..."
 sudo apt-get update
 sudo apt-get upgrade -y
 
+echo ""
+
 #//////////////////////////
 
 echo "[Cleaning up] after updates..."
@@ -17,6 +19,8 @@ echo "[Cleaning up] after updates..."
 # Clean up
 sudo apt-get autoclean
 sudo apt-get autoremove -y
+
+echo ""
 
 #//////////////////////////
 
