@@ -6,7 +6,7 @@
 # Usernames to test
 usernames=("access" "adm" "adm0" "adm1" "adm2" "adm3" "admin" "administrator" "ansible" "apache" "bb" "cisco" "cron" "daemon" "default" "faculty" "ftp" "guest" "irc" "john" "master" "michael" "mike" "mysql" "nproc" "oracle" "oracle8" "placeholder" "postfix" "postgres" "postmaster" "proxy" "public" "root" "rpc" "sales" "shutdown" "squid" "sshd" "staff" "support" "sync" "sys" "syslog" "system" "test" "testuser" "tomcat" "toor" "user")
 # Passwords to test
-passwords=("1234" "12345" "123456" "1234567" "12345678" "abc123" "adm" "admin" "admin123" "administrator" "admins" "alpine" "baseball" "basketball" "Changem3" "changem3" "changeme" "cisco" "default" "football" "hockey" "letmein" "linux" "login" "logon" "maintenance" "master" "pass" "Passw0rd" "passw0rd" "passwd" "password" "password123" "password123!" "password1234" "placeholder" "qwerty" "qwerty123" "root" "soccer" "support" "test" "test123" "test123!" "test1234" "testpass" "testpassword" "toor" "user" "webadmin" "webmaster")
+passwords=("123" "1234" "12345" "123456" "1234567" "12345678" "abc123" "adm" "admin" "admin123" "admin123!" "administrator" "admins" "alpine" "baseball" "basketball" "cadillac" "Changem3" "changem3" "changeme" "cisco" "default" "ferrari" "football" "hockey" "letmein" "linux" "login" "logon" "maintenance" "master" "mercedes" "nproc" "oracle" "pass" "Passw0rd" "passw0rd" "passwd" "password" "password123" "password123!" "password1234" "placeholder" "qwerty" "qwerty123" "root" "sales" "soccer" "support" "sys" "system" "tennis" "test" "test123" "test123!" "test1234" "testpass" "testpassword" "tomcat" "toor" "user" "webadmin" "webmaster")
 
 # For each password...
 for pass in "${passwords[@]}"; do
