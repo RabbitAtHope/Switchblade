@@ -2,7 +2,9 @@
 
 echo ""
 
-#//////////////////////////
+#////////////////////////////////////////////////////#
+# SUCCESSFUL LOGINS: Fetch all successes and sort them into categories.
+#////////////////////////////////////////////////////#
 
 echo "Fetching all [successful recent logins]..."
 
@@ -11,7 +13,9 @@ sudo cat /var/log/auth.log 2> /dev/null | grep "Accepted password" | sort
 
 echo ""
 
-#//////////////////////////
+#////////////////////////////////////////////////////#
+# FAILED LOGINS: Fetch all failures and sort them into categories.
+#////////////////////////////////////////////////////#
 
 echo "Fetching recent [failed attempts] to [existing accounts] that aren't [root]..."
 
