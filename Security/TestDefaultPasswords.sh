@@ -10,6 +10,8 @@ usernames_length=${#usernames[@]}
 passwords=("123" "1234" "12345" "123456" "1234567" "12345678" "abc123" "adm" "admin" "admin123" "admin123!" "admin1234" "administrator" "admins" "alpine" "baseball" "basketball" "cadillac" "Changem3" "changem3" "changeme" "cisco" "connect" "connection" "default" "defaultpass" "defaultpassword" "ferrari" "final" "football" "hockey" "letmein" "library" "linux" "login" "login123" "logon" "logon123" "maintenance" "master" "mercedes" "nproc" "oracle" "oracle123" "pass" "Passw0rd" "passw0rd" "passwd" "password" "password123" "password123!" "password1234" "placeholder" "qwerty" "qwerty123" "qwerty123!" "root" "root123" "sales" "soccer" "sports" "support" "sys" "system" "tennis" "test" "test123" "test123!" "test1234" "test1234!" "testpass" "testpassword" "tomcat" "tomcat123" "toor" "toor123" "user" "user123" "web" "webadmin" "webmaster")
 passwords_length=${#passwords[@]}
 
+echo ""
+
 # For each password...
 counter=0
 for pass in "${passwords[@]}"; do
