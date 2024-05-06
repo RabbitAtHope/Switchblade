@@ -11,3 +11,4 @@ A collection of small, useful Bash shell scripts for Linux server maintenance an
 ## ⚙️ Usage notes
 - Most of these scripts work best with Ubuntu LTS server installations, but many will have error-catching options and alternative commands or file location checks for other distributions.
 - If necessary, you may need to install the dos2unix library with apt or your preferred package manager to convert the scripts from Windows to Linux line endings.
+- If you want to add pretty colors to your scripts like me, [this post](https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux) is helpful.
