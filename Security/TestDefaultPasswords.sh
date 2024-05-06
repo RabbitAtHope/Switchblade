@@ -35,7 +35,7 @@ counter=0
 for pass in "${passwords[@]}"; do
 
   counter=$((counter+1))
-  echo -e "Trying ${white}[${none}${yellow}${pass}${none}${white}]${none} (${lightpurple}${counter}${none}/${purple}${passwords_length}${none})..."
+  echo -e "Trying ${white}[${none}${yellow}${pass}${none}${white}]${none} (${lightpurple}${counter}${none}/${purple}${passwords_length}${none}) against [${lightpurple}${usernames_length}${none}] usernames..."
   echo -e -n " ${orange}[${none}"
 
   # For each username...
