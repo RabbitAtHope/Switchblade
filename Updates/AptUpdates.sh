@@ -22,10 +22,18 @@ echo ""
 
 #//////////////////////////
 
+echo -e "[${green}Retrieving${none}] updates..."
+
+# Fetch the updates
+sudo apt-get update
+
+echo ""
+
+#//////////////////////////
+
 echo -e "[${green}Installing${none}] updates..."
 
 # Perform the updates
-sudo apt-get update
 sudo apt-get upgrade -y
 
 echo ""
@@ -42,4 +50,4 @@ echo ""
 
 #//////////////////////////
 
-echo "[${green}Success${none}] Updates installed."
+echo -e "[${green}Success${none}] Updates installed."
