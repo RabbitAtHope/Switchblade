@@ -23,7 +23,7 @@ echo ""
 #//////////////////////////
 
 # Port 21 (FTP)
-echo -e "Checking for overly permissive [${yellow}FTP${none}]/[${yellow}21{$none}] rules..."
+echo -e "Checking for overly permissive ${white}[${none}${yellow}FTP${none}${white}]${none}/${white}[${none}${yellow}21${none}${white}]${none} rules..."
 
 # Firewalld
 # Shorewall
@@ -38,7 +38,7 @@ echo ""
 #//////////////////////////
 
 # Port 22 (SSH/SFTP)
-echo -e "Checking for overly permissive [${yellow}SSH${none}]/[${yellow}22${none}] rules..."
+echo -e "Checking for overly permissive ${white}[${none}${yellow}SSH${none}${white}]${none}/${white}[${none}${yellow}22${none}${white}]${none} rules..."
 
 # Firewalld
 # Shorewall
@@ -53,7 +53,7 @@ echo ""
 #//////////////////////////
 
 # Port 8443
-echo -e "Checking for overly permissive [${yellow}8443${none}] rules..."
+echo -e "Checking for overly permissive ${white}[${none}${yellow}8443${none}${white}]${none} rules..."
 
 # Firewalld
 # Shorewall
