@@ -1,5 +1,29 @@
 #!/bin/bash
 
+# Pretty colors.
+red='\033[0;31m'
+green='\033[0;32m'
+orange='\033[0;33m'
+blue='\033[0;34m'
+purple='\033[0;35m'
+cyan='\033[0;36m'
+lightgray='\033[0;37m'
+darkgray='\033[1;30m'
+lightred='\033[1;31m'
+lightgreen='\033[1;32m'
+yellow='\033[1;33m'
+lightblue='\033[1;34m'
+lightpurple='\033[1;35m'
+lightcyan='\033[1;36m'
+white='\033[1;37m'
+none='\033[0m'
+
+echo ""
+
+#//////////////////////////
+
+echo -e "[${red}Scanning${none}] for possible [${red}web shells${none}]..."
+
 # Scan for possible r57 and c99 shell installations.
 # Note that this script may produce false positives. If you're worried about accidentally executing a webshell while searching, don't run this command as sudo!
 sudo find / -name "*".php -type f -print0 | xargs -0 grep r57 | uniq -c | sort -u | cut -d":" -f1 | grep -v Binary | uniq | grep -v "/usr/share/doc/git/RelNotes" | grep -v "/usr/share/vim/vim82/doc/syntax.txt"
@@ -8,3 +32,9 @@ sudo find / -name "*".txt -type f -print0 | xargs -0 grep r57 | uniq -c | sort -
 sudo find / -name "*".txt -type f -print0 | xargs -0 grep c99 | uniq -c | sort -u | cut -d":" -f1 | grep -v Binary | uniq | grep -v "/usr/share/doc/git/RelNotes" | grep -v "/usr/share/vim/vim82/doc/syntax.txt"
 sudo find / -name "*".gif -type f -print0 | xargs -0 grep r57 | uniq -c | sort -u | cut -d":" -f1 | grep -v Binary | uniq | grep -v "/usr/share/doc/git/RelNotes" | grep -v "/usr/share/vim/vim82/doc/syntax.txt"
 sudo find / -name "*".gif -type f -print0 | xargs -0 grep c99 | uniq -c | sort -u | cut -d":" -f1 | grep -v Binary | uniq | grep -v "/usr/share/doc/git/RelNotes" | grep -v "/usr/share/vim/vim82/doc/syntax.txt"
+
+echo ""
+
+#//////////////////////////
+
+echo -e "[${green}Success${none}] Scanning complete."
