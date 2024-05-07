@@ -27,7 +27,7 @@ echo -e "Checking for overly permissive ${white}[${none}${yellow}FTP${none}${whi
 
 # Firewalld
 # Shorewall
-# sudo cat /etc/shorewall/rules | grep...
+sudo cat /etc/shorewall/rules 2> /dev/null | grep "SSH/ACCEPT"
 # UFW
 sudo ufw status 2> /dev/null | grep "21 " | grep "ALLOW" | grep "Anywhere"
 sudo ufw status 2> /dev/null | grep "21/tcp " | grep "ALLOW" | grep "Anywhere"
@@ -42,11 +42,26 @@ echo -e "Checking for overly permissive ${white}[${none}${yellow}SSH${none}${whi
 
 # Firewalld
 # Shorewall
-# sudo cat /etc/shorewall/rules | grep...
+sudo cat /etc/shorewall/rules 2> /dev/null | grep "FTP/ACCEPT"
 # UFW
 sudo ufw status 2> /dev/null | grep "22 " | grep "ALLOW" | grep "Anywhere"
 sudo ufw status 2> /dev/null | grep "22/tcp " | grep "ALLOW" | grep "Anywhere"
 sudo ufw status 2> /dev/null | grep "SSH " | grep "ALLOW" | grep "Anywhere"
+
+echo ""
+
+#//////////////////////////
+
+# Port 25 (SMTP)
+echo -e "Checking for overly permissive ${white}[${none}${yellow}SMTP${none}${white}]${none}/${white}[${none}${yellow}25${none}${white}]${none} rules..."
+
+# Firewalld
+# Shorewall
+sudo cat /etc/shorewall/rules 2> /dev/null | grep "SMTP/ACCEPT"
+# UFW
+sudo ufw status 2> /dev/null | grep "25 " | grep "ALLOW" | grep "Anywhere"
+sudo ufw status 2> /dev/null | grep "25/tcp " | grep "ALLOW" | grep "Anywhere"
+sudo ufw status 2> /dev/null | grep "SMTP " | grep "ALLOW" | grep "Anywhere"
 
 echo ""
 
@@ -57,9 +72,25 @@ echo -e "Checking for overly permissive ${white}[${none}${yellow}8443${none}${wh
 
 # Firewalld
 # Shorewall
-# sudo cat /etc/shorewall/rules | grep...
 # UFW
 sudo ufw status 2> /dev/null | grep "8443 " | grep "ALLOW" | grep "Anywhere"
 sudo ufw status 2> /dev/null | grep "8443/tcp " | grep "ALLOW" | grep "Anywhere"
 
 echo ""
+
+#//////////////////////////
+
+# Port 10000 (Webmin)
+echo -e "Checking for overly permissive ${white}[${none}${yellow}Webmin${none}${white}]${none}/${white}[${none}${yellow}10000${none}${white}]${none} rules..."
+
+# Firewalld
+# Shorewall
+sudo cat /etc/shorewall/rules 2> /dev/null | grep "Webmin/ACCEPT"
+# UFW
+sudo ufw status 2> /dev/null | grep "10000 " | grep "ALLOW" | grep "Anywhere"
+sudo ufw status 2> /dev/null | grep "10000/tcp " | grep "ALLOW" | grep "Anywhere"
+sudo ufw status 2> /dev/null | grep "Webmin " | grep "ALLOW" | grep "Anywhere"
+
+echo ""
+
+#//////////////////////////
