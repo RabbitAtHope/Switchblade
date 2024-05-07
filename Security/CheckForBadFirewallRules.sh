@@ -23,7 +23,7 @@ echo ""
 #//////////////////////////
 
 # Port 21 (FTP)
-echo -e "Checking for overly permissive ${white}[${none}${yellow}FTP${none}${white}]${none}/${white}[${none}${yellow}21${none}${white}]${none} rules..."
+echo -e "${white}[${none}${yellow}21${none}${white}]${none} Checking for overly permissive ${white}[${none}${yellow}FTP${none}${white}]${none}/${white}[${none}${yellow}21${none}${white}]${none} rules..."
 
 # Firewalld
 # Shorewall
@@ -38,11 +38,11 @@ echo ""
 #//////////////////////////
 
 # Port 22 (SSH/SFTP)
-echo -e "Checking for overly permissive ${white}[${none}${yellow}SSH${none}${white}]${none}/${white}[${none}${yellow}22${none}${white}]${none} rules..."
+echo -e "${white}[${none}${yellow}22${none}${white}]${none} Checking for overly permissive ${white}[${none}${yellow}SSH${none}${white}]${none}/${white}[${none}${yellow}22${none}${white}]${none} rules..."
 
 # Firewalld
 # Shorewall
-sudo cat /etc/shorewall/rules 2> /dev/null | grep "FTP/ACCEPT"
+sudo cat /etc/shorewall/rules 2> /dev/null | grep "SSH/ACCEPT"
 # UFW
 sudo ufw status 2> /dev/null | grep "22 " | grep "ALLOW" | grep "Anywhere"
 sudo ufw status 2> /dev/null | grep "22/tcp " | grep "ALLOW" | grep "Anywhere"
@@ -53,7 +53,7 @@ echo ""
 #//////////////////////////
 
 # Port 25 (SMTP)
-echo -e "Checking for overly permissive ${white}[${none}${yellow}SMTP${none}${white}]${none}/${white}[${none}${yellow}25${none}${white}]${none} rules..."
+echo -e "${white}[${none}${yellow}25${none}${white}]${none} Checking for overly permissive ${white}[${none}${yellow}SMTP${none}${white}]${none}/${white}[${none}${yellow}25${none}${white}]${none} rules..."
 
 # Firewalld
 # Shorewall
@@ -68,7 +68,7 @@ echo ""
 #//////////////////////////
 
 # Port 8443
-echo -e "Checking for overly permissive ${white}[${none}${yellow}8443${none}${white}]${none} rules..."
+echo -e "${white}[${none}${yellow}8443${none}${white}]${none} Checking for overly permissive ${white}[${none}${yellow}8443${none}${white}]${none} rules..."
 
 # Firewalld
 # Shorewall
@@ -81,7 +81,7 @@ echo ""
 #//////////////////////////
 
 # Port 10000 (Webmin)
-echo -e "Checking for overly permissive ${white}[${none}${yellow}Webmin${none}${white}]${none}/${white}[${none}${yellow}10000${none}${white}]${none} rules..."
+echo -e "${white}[${none}${yellow}10000${none}${white}]${none} Checking for overly permissive ${white}[${none}${yellow}Webmin${none}${white}]${none}/${white}[${none}${yellow}10000${none}${white}]${none} rules..."
 
 # Firewalld
 # Shorewall
