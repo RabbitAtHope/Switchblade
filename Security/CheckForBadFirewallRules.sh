@@ -27,7 +27,7 @@ echo -e "Checking for overly permissive ${white}[${none}${yellow}FTP${none}${whi
 
 # Firewalld
 # Shorewall
-sudo cat /etc/shorewall/rules 2> /dev/null | grep "SSH/ACCEPT"
+sudo cat /etc/shorewall/rules 2> /dev/null | grep "FTP/ACCEPT"
 # UFW
 sudo ufw status 2> /dev/null | grep "21 " | grep "ALLOW" | grep "Anywhere"
 sudo ufw status 2> /dev/null | grep "21/tcp " | grep "ALLOW" | grep "Anywhere"
