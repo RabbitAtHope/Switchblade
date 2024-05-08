@@ -46,8 +46,11 @@ if [ "$sent_count" -eq 0 ]; then
     echo -e "No sent emails in the specified time period."
 else
     drop_percentage=$(echo "scale=2; $dropped_count / $sent_count * 100" | bc)
-    echo -e "Sent emails: ${white}[${none}${green}${sent_count}${none}${white}]${none}"
-    echo -e "Dropped emails: ${white}[${none}${red}${dropped_count}${none}${white}]${none}"
+	
+    echo -e "[${green}>${none}] Sent emails: ${white}[${none}${green}${sent_count}${none}${white}]${none}"
+	echo ""
+	
+    echo -e "[${red}x${none}] Dropped emails: ${white}[${none}${red}${dropped_count}${none}${white}]${none}"
 	
 	echo -e " Bounced: ${white}[${none}${red}${bounced_count}${none}${white}]${none}"
 	echo -e "  - Bad recipient: ${white}[${none}${red}${bounced_count_badreceiver}${none}${white}]${none}"
