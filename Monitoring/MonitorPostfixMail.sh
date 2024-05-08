@@ -49,6 +49,7 @@ else
 	
 	echo -e " Bounced: ${white}[${none}${red}${bounced_count}${none}${white}]${none}"
 	echo -e "  - Bad recipient: ${white}[${none}${red}${bounced_count_badreceiver}${none}${white}]${none}"
+	echo -e "  - Other: ${white}[${none}${red}$(($bounced_count-$(($bounced_count_badreceiver))))${none}${white}]${none}"
 	echo -e " Deferred: ${white}[${none}${red}${deferred_count}${none}${white}]${none}"
 	echo -e "  - Host not found: ${white}[${none}${red}${deferred_count_hostnotfound}${none}${white}]${none}"
 	echo -e "  - Rate limited unauthenticated host: ${white}[${none}${red}${deferred_count_ratelimitednoauth}${none}${white}]${none}"
