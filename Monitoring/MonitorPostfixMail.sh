@@ -33,7 +33,7 @@ dropped_count=$(grep -E "status=(bounced|deferred|expired|rejected)" /var/log/ma
 # Break dropped email count down by the reason
 bounced_count=$(grep -E "status=(bounced)" /var/log/mail.log | wc -l)
 deferred_count=$(grep -E "status=(deferred)" /var/log/mail.log | wc -l)
-deferred_count_hostnotfound=$(grep "status=(deferred)" /var/log/mail.log | grep "Host or domain name not found" | wc -l)
+deferred_count_hostnotfound=$(grep "status=deferred" /var/log/mail.log | grep "Host or domain name not found" | wc -l)
 expired_count=$(grep -E "status=(expired)" /var/log/mail.log | wc -l)
 rejected_count=$(grep -E "status=(rejected)" /var/log/mail.log | wc -l)
 
