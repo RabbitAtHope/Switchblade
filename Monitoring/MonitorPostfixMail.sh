@@ -29,6 +29,11 @@ sent_count=$(grep "status=sent" /var/log/mail.log | wc -l)
 
 # Get count of dropped emails
 dropped_count=$(grep -E "status=(bounced|deferred|expired|rejected)" /var/log/mail.log | wc -l)
+# Break it down by the reason
+bounced_count=$(grep -E "status=(bounced)" /var/log/mail.log | wc -l)
+deferred_count=$(grep -E "status=(deferred)" /var/log/mail.log | wc -l)
+expired_count=$(grep -E "status=(expired)" /var/log/mail.log | wc -l)
+rejected_count=$(grep -E "status=(rejected)" /var/log/mail.log | wc -l)
 
 # Calculate the percentage of dropped mail
 if [ "$sent_count" -eq 0 ]; then
@@ -37,6 +42,12 @@ else
     drop_percentage=$(echo "scale=2; $dropped_count / $sent_count * 100" | bc)
     echo -e "Sent emails: ${white}[${none}${green}${sent_count}${none}${white}]${none}"
     echo -e "Dropped emails: ${white}[${none}${red}${dropped_count}${none}${white}]${none}"
+	
+	echo -e " Bounced: ${white}[${none}${red}${bounced_count}${none}${white}]${none}"
+	echo -e " Deferred: ${white}[${none}${red}${deferred_count}${none}${white}]${none}"
+	echo -e " Expired: ${white}[${none}${red}${expired_count}${none}${white}]${none}"
+	echo -e " Rejected: ${white}[${none}${red}${rejected_count}${none}${white}]${none}"
+	
     echo -e "Percentage of dropped mail: ${white}[${none}${red}${drop_percentage}${none}%${white}]${none}"
 fi
 
