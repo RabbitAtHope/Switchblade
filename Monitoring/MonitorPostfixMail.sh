@@ -52,19 +52,20 @@ else
 	
     echo -e "[${red}x${none}] Dropped emails: ${white}[${none}${red}${dropped_count}${none}${white}]${none}"
 	
-	echo -e " Bounced: ${white}[${none}${red}${bounced_count}${none}${white}]${none}"
+	echo -e " [${red}x${none}] Bounced: ${white}[${none}${red}${bounced_count}${none}${white}]${none}"
 	echo -e "  - Bad recipient: ${white}[${none}${red}${bounced_count_badreceiver}${none}${white}]${none}"
 	echo -e "  - Mailbox unreachable: ${white}[${none}${red}${bounced_count_mailboxunreachable}${none}${white}]${none}"
 	echo -e "  - No message ID: ${white}[${none}${red}${bounced_count_nomessageid}${none}${white}]${none}"
 	echo -e "  - Other: ${white}[${none}${red}$(($bounced_count-$(($bounced_count_badreceiver+$bounced_count_nomessageid+bounced_count_mailboxunreachable))))${none}${white}]${none}"
-	echo -e " Deferred: ${white}[${none}${red}${deferred_count}${none}${white}]${none}"
+	echo -e " [${red}x${none}] Deferred: ${white}[${none}${red}${deferred_count}${none}${white}]${none}"
 	echo -e "  - Host not found: ${white}[${none}${red}${deferred_count_hostnotfound}${none}${white}]${none}"
 	echo -e "  - Rate limited unauthenticated host: ${white}[${none}${red}${deferred_count_ratelimitednoauth}${none}${white}]${none}"
 	echo -e "  - Other: ${white}[${none}${red}$(($deferred_count-$(($deferred_count_hostnotfound+$deferred_count_ratelimitednoauth))))${none}${white}]${none}"
-	echo -e " Expired: ${white}[${none}${red}${expired_count}${none}${white}]${none}"
-	echo -e " Rejected: ${white}[${none}${red}${rejected_count}${none}${white}]${none}"
+	echo -e " [${red}x${none}] Expired: ${white}[${none}${red}${expired_count}${none}${white}]${none}"
+	echo -e " [${red}x${none}] Rejected: ${white}[${none}${red}${rejected_count}${none}${white}]${none}"
+	echo ""
 	
-    echo -e "Percentage of dropped mail: ${white}[${none}${red}${drop_percentage}${none}%${white}]${none}"
+    echo -e "[${red}%${none}] Percentage of dropped mail: ${white}[${none}${red}${drop_percentage}${none}%${white}]${none}"
 fi
 
 echo ""
