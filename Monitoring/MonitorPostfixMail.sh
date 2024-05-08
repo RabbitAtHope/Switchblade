@@ -34,6 +34,7 @@ dropped_count=$(grep -E "status=(bounced|deferred|expired|rejected)" /var/log/ma
 bounced_count=$(grep -E "status=(bounced)" /var/log/mail.log | wc -l)
 deferred_count=$(grep -E "status=(deferred)" /var/log/mail.log | wc -l)
 deferred_count_hostnotfound=$(grep "status=deferred" /var/log/mail.log | grep "Host or domain name not found" | wc -l)
+deferred_count_ratelimitednoauth=$(grep "status=deferred" /var/log/mail.log | grep "This mail has been rate limited because it is unauthenticated" | wc -l)
 expired_count=$(grep -E "status=(expired)" /var/log/mail.log | wc -l)
 rejected_count=$(grep -E "status=(rejected)" /var/log/mail.log | wc -l)
 
@@ -47,7 +48,9 @@ else
 	
 	echo -e " Bounced: ${white}[${none}${red}${bounced_count}${none}${white}]${none}"
 	echo -e " Deferred: ${white}[${none}${red}${deferred_count}${none}${white}]${none}"
-	echo -e "  > Host not found: ${white}[${none}${red}${deferred_count_hostnotfound}${none}${white}]${none}"
+	echo -e "  - Host not found: ${white}[${none}${red}${deferred_count_hostnotfound}${none}${white}]${none}"
+	echo -e "  - Rate limited unauthenticated host: ${white}[${none}${red}${deferred_count_ratelimitednoauth}${none}${white}]${none}"
+	echo -e "  - Other: ${white}[${none}${red}$(($deferred_count-$(($deferred_count_hostnotfound+$deferred_count_ratelimitednoauth))))${none}${white}]${none}"
 	echo -e " Expired: ${white}[${none}${red}${expired_count}${none}${white}]${none}"
 	echo -e " Rejected: ${white}[${none}${red}${rejected_count}${none}${white}]${none}"
 	
