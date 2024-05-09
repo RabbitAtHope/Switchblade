@@ -75,11 +75,6 @@ for package in $packages; do
     package_versions["$package"]="$version"
 done
 
-# Display package names along with their versions.
-for package in "${!package_versions[@]}"; do
-    echo -e "[${yellow}Package${none}]: $package, [${yellow}Version${none}]: ${package_versions[$package]}"
-done
-
 # DPKG
 
 # YUM
@@ -90,9 +85,11 @@ done
 
 # - Mediawiki page
 echo "'''${hostname} (${fqdn})''' is a '''${os_details}''' server. Its IP addresses are '''${ipv4}'''.\n\n==Installed Packages==\n" > MediawikiPage.txt
-# -- Append the package list in bullet-point format
-for package in "${!package_versions[@]}"; do
-    echo "- '''${package}''': ${package_versions[$package]}\n" >> MediawikiPage.txt
+# -- Get sorted keys from the associative array
+sorted_packages=($(for package in "${!package_versions[@]}"; do echo $package; done | sort))
+# -- Append the package list in bullet-point format, sorted alphabetically
+for package in "${sorted_packages[@]}"; do
+    echo "- '''${package}''': ${package_versions[$package]}" >> MediawikiPage.txt
 done
 
 echo ""
