@@ -105,8 +105,8 @@ for package in "${sorted_packages[@]}"; do
 		:
     fi
 done
-echo ""
-echo ""
+echo "" >> MediawikiPage.txt
+echo "" >> MediawikiPage.txt
 # --- Python packages
 echo "===Python===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
@@ -119,8 +119,8 @@ for package in "${sorted_packages[@]}"; do
 		:
     fi
 done
-echo ""
-echo ""
+echo "" >> MediawikiPage.txt
+echo "" >> MediawikiPage.txt
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
