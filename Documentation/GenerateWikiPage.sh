@@ -21,22 +21,28 @@ none='\033[0m'
 echo ""
 
 #//////////////////////////
+# HOSTNAME / DOMAIN NAME
+#//////////////////////////
 
 # Server hostname
 hostname=$(hostname)
 echo -e "[${yellow}Server Hostname${none}]: ${hostname}"
 
-#//////////////////////////
-
 # Fully qualified domain name
 fqdn=$(hostname -f)
 echo -e "[${yellow}Fully Qualified Domain Name${none}]: ${fqdn}"
 
+echo ""
+
+#//////////////////////////
+# NETWORK INFORMATION
 #//////////////////////////
 
 # Server IP address(es)
 ipv4=$(ip -o -f inet addr show | awk '{print $4}' | grep -v '^127\.0\.0\.1/8$' | tr '\n' ', ' | sed 's/, $//')
 echo -e "[${yellow}IPv4 Addresses${none}]: ${ipv4}"
+# Remove the trailing comma
+ipv4=${ipv4%,}
 
 # OS details
 os_details=$(lsb_release -a 2>/dev/null | grep Description | awk -F':' '{print $2}' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
@@ -51,12 +57,47 @@ echo -e "[${yellow}Network Interfaces${none}]: ${interfaces}"
 echo ""
 
 #//////////////////////////
+# PACKAGE INFORMATION
+#//////////////////////////
+
+# APT
+
+# Get a list of all installed packages and sort them alphabetically.
+packages=$(apt list --installed 2>/dev/null | awk -F/ '{print $1}' | sort)
+
+# Create a new array to store package names and their versions.
+declare -A package_versions
+
+# Loop through each package in the list to get its version.
+# 'apt-cache policy' retrieves version information.
+for package in $packages; do
+    version=$(apt-cache policy "$package" | grep 'Installed' | awk '{print $2}')
+    package_versions["$package"]="$version"
+done
+
+# Display package names along with their versions.
+for package in "${!package_versions[@]}"; do
+    echo -e "[${yellow}Package${none}]: $package, [${yellow}Version${none}]: ${package_versions[$package]}"
+done
+
+# DPKG
+
+# YUM
+
+#//////////////////////////
+# DOCUMENTATION OUTPUT
+#//////////////////////////
 
 # - Mediawiki page
-echo "'''${hostname} (${fqdn})''' is a ${os_details} server. Its IP addresses are '''${ipv4}'''.\n" > MediawikiPage.txt
+echo "'''${hostname} (${fqdn})''' is a '''${os_details}''' server. Its IP addresses are '''${ipv4}'''.\n\n==Installed Packages==\n" > MediawikiPage.txt
+# -- Append the package list in bullet-point format
+for package in "${!package_versions[@]}"; do
+    echo "- '''${package}''': ${package_versions[$package]}\n" >> MediawikiPage.txt
+done
 
 echo ""
 
 #//////////////////////////
 
 echo -e "[${green}Success${none}] Outputted wiki page contents."
+echo -e " [${green}Mediawiki${none}]: MediawikiPage.txt"
