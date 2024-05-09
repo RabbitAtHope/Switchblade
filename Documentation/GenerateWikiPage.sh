@@ -101,7 +101,7 @@ sorted_packages=($(for package in "${!package_versions[@]}"; do echo $package; d
 # --- Apparmor
 echo "===Apparmor===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(apparmor) ]]; then
+    if [[ "$package" =~ ^(apparmor|libapparmor) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
@@ -113,7 +113,7 @@ echo "" >> MediawikiPage.txt
 # --- Apt
 echo "===Apt===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(apt) ]]; then
+    if [[ "$package" =~ ^(apt|libapt) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
@@ -197,7 +197,7 @@ echo "" >> MediawikiPage.txt
 # --- Python
 echo "===Python===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(python|libpython) ]]; then
+    if [[ "$package" =~ ^(libpython|python) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
@@ -245,7 +245,7 @@ echo "" >> MediawikiPage.txt
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(apparmor|apt|bash|bind9|libncurses|libpython|libsystemd|ncurses|openssh|perl|postfix|python|systemd|vim|xymon) ]]; then
+    if [[ "$package" =~ ^(apparmor|apt|bash|bind9|libapparmor|libapt|libncurses|libpython|libsystemd|ncurses|openssh|perl|postfix|python|systemd|vim|xymon) ]]; then
         # Already added earlier, so do nothing
 		:
 	# Other
