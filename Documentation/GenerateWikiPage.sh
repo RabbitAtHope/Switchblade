@@ -84,7 +84,9 @@ done
 #//////////////////////////
 
 # - Mediawiki page
-echo "'''${hostname} (${fqdn})''' is a '''${os_details}''' server. Its IP addresses are '''${ipv4}'''.\n\n==Installed Packages==\n" > MediawikiPage.txt
+echo "" > MediawikiPage.txt # Create file and make sure it's empty
+echo "'''${hostname} (${fqdn})''' is a '''${os_details}''' server. Its IP addresses are '''${ipv4}'''." >> MediawikiPage.txt
+echo "==Installed Packages==" >> MediawikiPage.txt
 # -- Get sorted keys from the associative array
 sorted_packages=($(for package in "${!package_versions[@]}"; do echo $package; done | sort))
 # -- Append the package list in bullet-point format, sorted alphabetically
