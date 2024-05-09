@@ -158,10 +158,22 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
+# --- Xymon
+echo "===Xymon===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(xymon) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(bind9|openssh|perl|python|libpython|vim) ]]; then
+    if [[ "$package" =~ ^(bind9|openssh|perl|python|libpython|vim|xymon) ]]; then
         # Already added earlier, so do nothing
 		:
 	# Other
