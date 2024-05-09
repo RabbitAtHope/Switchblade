@@ -98,6 +98,42 @@ echo "==Installed Packages==" >> MediawikiPage.txt
 # -- Get sorted keys from the associative array
 sorted_packages=($(for package in "${!package_versions[@]}"; do echo $package; done | sort))
 # -- Append the package list in bullet-point format, sorted alphabetically, and categorize if possible
+# --- Apparmor
+echo "===Apparmor===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(apparmor) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
+# --- Apt
+echo "===Apt===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(apt) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
+# --- Bash
+echo "===Bash===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(bash) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- Bind
 echo "===Bind===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
@@ -173,7 +209,7 @@ echo "" >> MediawikiPage.txt
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(bind9|openssh|perl|python|libpython|vim|xymon) ]]; then
+    if [[ "$package" =~ ^(apparmor|apt|bash|bind9|openssh|perl|python|libpython|vim|xymon) ]]; then
         # Already added earlier, so do nothing
 		:
 	# Other
