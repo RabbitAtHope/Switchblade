@@ -102,6 +102,7 @@ for package in "${sorted_packages[@]}"; do
 	# Other
     else
         # Do nothing
+		:
     fi
 done
 echo ""
@@ -111,12 +112,12 @@ for package in "${sorted_packages[@]}"; do
 	# Python
     if [[ "$package" =~ ^(python|libpython) ]]; then
         # Already added earlier, so do nothing
+		:
 	# Other
     else
         echo "- '''${package}''': ${package_versions[$package]}" >> MediawikiPage.txt
     fi
 done
-
 echo ""
 
 #//////////////////////////
