@@ -93,6 +93,20 @@ echo "==Installed Packages==" >> MediawikiPage.txt
 # -- Get sorted keys from the associative array
 sorted_packages=($(for package in "${!package_versions[@]}"; do echo $package; done | sort))
 # -- Append the package list in bullet-point format, sorted alphabetically, and categorize if possible
+# --- Bind9 packages
+echo "===Bind===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+	# Python
+    if [[ "$package" =~ ^(bind9) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo ""
+echo ""
 # --- Python packages
 echo "===Python===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
@@ -106,11 +120,11 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo ""
+echo ""
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-	# Python
-    if [[ "$package" =~ ^(python|libpython) ]]; then
+    if [[ "$package" =~ ^(bind9|python|libpython) ]]; then
         # Already added earlier, so do nothing
 		:
 	# Other
