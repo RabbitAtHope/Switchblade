@@ -35,7 +35,7 @@ echo -e "[${yellow}Fully Qualified Domain Name${none}]: ${fqdn}"
 #//////////////////////////
 
 # Server IP address(es)
-ipv4=$(ip -o -f inet addr show | awk '{print $4}' | tr '\n' ', ' | sed 's/, $//')
+ipv4=$(ip -o -f inet addr show | awk '{print $4}' | grep -v '^127\.0\.0\.1/8$' | tr '\n' ', ' | sed 's/, $//')
 echo -e "[${yellow}IPv4 Addresses${none}]: ${ipv4}"
 
 # OS details
