@@ -98,10 +98,9 @@ echo "==Installed Packages==" >> MediawikiPage.txt
 # -- Get sorted keys from the associative array
 sorted_packages=($(for package in "${!package_versions[@]}"; do echo $package; done | sort))
 # -- Append the package list in bullet-point format, sorted alphabetically, and categorize if possible
-# --- Bind9 packages
+# --- Bind
 echo "===Bind===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-	# Python
     if [[ "$package" =~ ^(bind9) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
@@ -114,7 +113,6 @@ echo "" >> MediawikiPage.txt
 # --- OpenSSH
 echo "===OpenSSH===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-	# Python
     if [[ "$package" =~ ^(openssh) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
@@ -124,10 +122,21 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
-# --- Python packages
+# --- Perl
+echo "===Perl===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(perl) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
+# --- Python
 echo "===Python===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-	# Python
     if [[ "$package" =~ ^(python|libpython) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
@@ -140,7 +149,6 @@ echo "" >> MediawikiPage.txt
 # --- Vim
 echo "===Vim===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-	# Python
     if [[ "$package" =~ ^(vim) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
@@ -153,7 +161,7 @@ echo "" >> MediawikiPage.txt
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(bind9|openssh|python|libpython|vim) ]]; then
+    if [[ "$package" =~ ^(bind9|openssh|perl|python|libpython|vim) ]]; then
         # Already added earlier, so do nothing
 		:
 	# Other
