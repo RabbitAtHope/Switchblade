@@ -39,7 +39,7 @@ ipv4=$(ip -o -f inet addr show | awk '{print $4}' | tr '\n' ', ' | sed 's/, $//'
 echo -e "[${yellow}IPv4 Addresses${none}]: ${ipv4}"
 
 # OS details
-os_details=$(lsb_release -a 2>/dev/null | grep Description | awk -F':' '{print $2}' | sed 's/^ *//')
+os_details=$(lsb_release -a 2>/dev/null | grep Description | awk -F':' '{print $2}' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
 echo -e "[${yellow}Operating System${none}]: ${os_details}"
 
 # Network interfaces
