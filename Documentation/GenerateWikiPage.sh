@@ -146,6 +146,18 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
+# --- Curl
+echo "===Curl===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(curl|libcurl) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- Ncurses
 echo "===Ncurses===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
@@ -245,7 +257,7 @@ echo "" >> MediawikiPage.txt
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(apparmor|apt|bash|bind9|libapparmor|libapt|libncurses|libpython|libsystemd|ncurses|openssh|perl|postfix|python|systemd|vim|xymon) ]]; then
+    if [[ "$package" =~ ^(apparmor|apt|bash|bind9|curl|libapparmor|libapt|libcurl|libncurses|libpython|libsystemd|ncurses|openssh|perl|postfix|python|systemd|vim|xymon) ]]; then
         # Already added earlier, so do nothing
 		:
 	# Other
