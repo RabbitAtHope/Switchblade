@@ -34,7 +34,7 @@ echo -e "[${yellow}Fully Qualified Domain Name${none}]: ${fqdn}"
 
 # DNS name
 IP_ADDRESS=$(hostname -I | awk '{print $1}')
-dnsname=$(nslookup $IP_ADDRESS)
+dnsname=$(nslookup $IP_ADDRESS | grep 'name =' | awk -F'=' '{print $2}' | sed 's/^\s*//g')
 echo -e "[${yellow}DNS Name${none}]: ${dnsname}"
 
 echo ""
