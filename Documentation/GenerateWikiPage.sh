@@ -149,7 +149,7 @@ echo "" >> MediawikiPage.txt
 # --- Ncurses
 echo "===Ncurses===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(ncurses) ]]; then
+    if [[ "$package" =~ ^(libncurses|ncurses) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
@@ -209,7 +209,7 @@ echo "" >> MediawikiPage.txt
 # --- Systemd
 echo "===Systemd===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(systemd) ]]; then
+    if [[ "$package" =~ ^(libsystemd|systemd) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
@@ -245,7 +245,7 @@ echo "" >> MediawikiPage.txt
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(apparmor|apt|bash|bind9|ncurses|openssh|perl|postfix|python|libpython|systemd|vim|xymon) ]]; then
+    if [[ "$package" =~ ^(apparmor|apt|bash|bind9|libncurses|libpython|libsystemd|ncurses|openssh|perl|postfix|python|systemd|vim|xymon) ]]; then
         # Already added earlier, so do nothing
 		:
 	# Other
