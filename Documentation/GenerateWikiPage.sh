@@ -121,10 +121,24 @@ for package in "${sorted_packages[@]}"; do
 done
 echo "" >> MediawikiPage.txt
 echo "" >> MediawikiPage.txt
+# --- Vim
+echo "===Vim===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+	# Python
+    if [[ "$package" =~ ^(vim) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
+echo "" >> MediawikiPage.txt
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(bind9|python|libpython) ]]; then
+    if [[ "$package" =~ ^(bind9|python|libpython|vim) ]]; then
         # Already added earlier, so do nothing
 		:
 	# Other
