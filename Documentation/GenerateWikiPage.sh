@@ -32,6 +32,11 @@ echo -e "[${yellow}Server Hostname${none}]: ${hostname}"
 fqdn=$(hostname -f)
 echo -e "[${yellow}Fully Qualified Domain Name${none}]: ${fqdn}"
 
+# DNS name
+IP_ADDRESS=$(hostname -I | awk '{print $1}')
+dnsname=$(nslookup $IP_ADDRESS)
+echo -e "[${yellow}DNS Name${none}]: ${dnsname}"
+
 echo ""
 
 #//////////////////////////
@@ -87,7 +92,7 @@ done
 
 # - Mediawiki page
 echo "" > MediawikiPage.txt # Create file and make sure it's empty
-echo "'''${hostname} (${fqdn})''' is a '''${os_details}''' server. Its IP addresses are '''${ipv4}'''." >> MediawikiPage.txt
+echo "'''${hostname} (${fqdn} / ${dnsname})''' is a '''${os_details}''' server. Its IP addresses are '''${ipv4}'''." >> MediawikiPage.txt
 echo "" >> MediawikiPage.txt
 echo "==Installed Packages==" >> MediawikiPage.txt
 # -- Get sorted keys from the associative array
@@ -106,6 +111,18 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
+# --- OpenSSH
+echo "===OpenSSH===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+	# Python
+    if [[ "$package" =~ ^(openssh) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
 echo "" >> MediawikiPage.txt
 # --- Python packages
 echo "===Python===" >> MediawikiPage.txt
@@ -120,7 +137,6 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
-echo "" >> MediawikiPage.txt
 # --- Vim
 echo "===Vim===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
@@ -134,11 +150,10 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
-echo "" >> MediawikiPage.txt
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(bind9|python|libpython|vim) ]]; then
+    if [[ "$package" =~ ^(bind9|openssh|python|libpython|vim) ]]; then
         # Already added earlier, so do nothing
 		:
 	# Other
