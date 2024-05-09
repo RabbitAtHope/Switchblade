@@ -35,15 +35,15 @@ echo -e "[${yellow}Fully Qualified Domain Name${none}]: ${fqdn}"
 #//////////////////////////
 
 # Server IP address(es)
-ipv4=$(ip -o -f inet addr show | awk '{print $4}' | tr '\n' ', ' | sed 's/,$//')
+ipv4=$(ip -o -f inet addr show | awk '{print $4}' | tr '\n' ', ' | sed 's/, $//')
 echo -e "[${yellow}IPv4 Addresses${none}]: ${ipv4}"
 
 # OS details
-os_details=$(lsb_release -a 2>/dev/null | grep Description)
+os_details=$(lsb_release -a 2>/dev/null | grep Description | awk -F':' '{print $2}' | sed 's/^ *//')
 echo -e "[${yellow}Operating System${none}]: ${os_details}"
 
 # Network interfaces
-interfaces=$(ip link show | grep -Eo '^[0-9]+: [^:]+:' | awk '{print $2}' | tr '\n' ',')
+interfaces=$(ip link show | grep -Eo '^[0-9]+: [^:]+:' | awk '{print $2}' | tr '\n' ', ')
 # Remove the trailing comma
 interfaces=${interfaces%,}
 echo -e "[${yellow}Network Interfaces${none}]: ${interfaces}"
