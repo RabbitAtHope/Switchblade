@@ -158,6 +158,30 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
+# --- MariaDB
+echo "===MariaDB===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(mariadb) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
+# --- MySQL
+echo "===MySQL===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(mysql) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- Ncurses
 echo "===Ncurses===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
@@ -197,7 +221,7 @@ echo "" >> MediawikiPage.txt
 # --- Postfix
 echo "===Postfix===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(postfix) ]]; then
+    if [[ "$package" =~ ^(libpostfix|postfix) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
@@ -233,7 +257,7 @@ echo "" >> MediawikiPage.txt
 # --- Vim
 echo "===Vim===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(vim) ]]; then
+    if [[ "$package" =~ ^(libvim|vim) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
@@ -245,7 +269,7 @@ echo "" >> MediawikiPage.txt
 # --- Xymon
 echo "===Xymon===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(xymon) ]]; then
+    if [[ "$package" =~ ^(libxymon|xymon) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
@@ -257,7 +281,7 @@ echo "" >> MediawikiPage.txt
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(apparmor|apt|bash|bind9|curl|libapparmor|libapt|libcurl|libncurses|libpython|libsystemd|ncurses|openssh|perl|postfix|python|systemd|vim|xymon) ]]; then
+    if [[ "$package" =~ ^(apparmor|apt|bash|bind9|curl|libapparmor|libapt|libcurl|libncurses|libpostfix|libpython|libsystemd|libvim|libxymon|mariadb|mysql|ncurses|openssh|perl|postfix|python|systemd|vim|xymon) ]]; then
         # Already added earlier, so do nothing
 		:
 	# Other
