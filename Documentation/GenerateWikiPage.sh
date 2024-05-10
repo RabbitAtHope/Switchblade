@@ -477,7 +477,7 @@ echo "" >> MediawikiPage.txt
 # --- Tar
 echo "===Tar===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(tar) ]]; then
+    if [[ "$package" =~ ^(libtar|tar) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
@@ -489,7 +489,7 @@ echo "" >> MediawikiPage.txt
 # --- Tcl
 echo "===Tcl===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(tcl) ]]; then
+    if [[ "$package" =~ ^(libtcl|tcl) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
@@ -717,7 +717,7 @@ echo "" >> MediawikiPage.txt
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(acl|alpine|amd|apparmor|apt|bash|bind9|binutils|certbot|cryptsetup|curl|dpkg|gcc|gpg|grub|libacl|libalpine|libamd|libapparmor|libapt|libbinutils|libcryptsetup|libcurl|libgcc|libgpg|libncurses|libnetplan|libntp|libopenssh|libpam|libperl|libpostfix|libpython|libsystemd|libtss|libusb|libvim|libxml|libxymon|libyaml|libzstd|linux|mariadb|mysql|ncurses|netplan|ntp|openssh|perl|plymouth|pollinate|postfix|python|rsync|sudo|systemd|tar|tcl|tcpdump|telnet|time|tss|ubuntu|ufw|usb|vim|webmin|wget|whiptail|xml|xymon|xz|yaml|zerofree|zlib|zstd) ]]; then
+    if [[ "$package" =~ ^(acl|alpine|amd|apparmor|apt|bash|bind9|binutils|certbot|cryptsetup|curl|dpkg|gcc|gpg|grub|libacl|libalpine|libamd|libapparmor|libapt|libbinutils|libcryptsetup|libcurl|libgcc|libgpg|libncurses|libnetplan|libntp|libopenssh|libpam|libperl|libpostfix|libpython|libsystemd|libtar|libtcl|libtss|libusb|libvim|libxml|libxymon|libyaml|libzstd|linux|mariadb|mysql|ncurses|netplan|ntp|openssh|perl|plymouth|pollinate|postfix|python|rsync|sudo|systemd|tar|tcl|tcpdump|telnet|time|tss|ubuntu|ufw|usb|vim|webmin|wget|whiptail|xml|xymon|xz|yaml|zerofree|zlib|zstd) ]]; then
         # Already added earlier, so do nothing
 		:
 	# Other
