@@ -582,7 +582,6 @@ for package in "${sorted_packages[@]}"; do
 		:
     fi
 done
-echo "" >> MediawikiPage.txt
 # ---- Python other
 echo "====Other Python packages====" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
