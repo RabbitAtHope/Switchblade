@@ -318,6 +318,18 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
+# --- Datetime
+echo "===Datetime===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(datetime|libdatetime) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- Dbus
 echo "===Dbus===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
@@ -606,6 +618,18 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
+# --- Parted
+echo "===Parted===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(libparted|parted) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- Perl
 echo "===Perl===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
@@ -633,7 +657,7 @@ echo "" >> MediawikiPage.txt
 # --- Plymouth
 echo "===Plymouth===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(plymouth) ]]; then
+    if [[ "$package" =~ ^(libplymouth|plymouth) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
@@ -1011,7 +1035,7 @@ echo "" >> MediawikiPage.txt
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(acl|adduser|alpine|amd|apache|apparmor|apport|apt|bash|bind9|binutils|bolt|busybox|bzip|certbot|cryptsetup|curl|dbus|dpkg|eject|fakeroot|fonts|gcc|git|gpg|grep|grub|gzip|htop|init|iproute|iptables|iputils|libacl|libalpine|libamd|libapache|libapparmor|libapt|libbinutils|libbzip|libcryptsetup|libcurl|libgcc|libgpg|libncurses|libnetplan|libntp|libopenssh|libpam|libperl|libphp|libpolkit|libpostfix|libpython|libsystemd|libtar|libtcl|libtss|libusb|libvim|libwget|libxml|libxymon|libxz|libyaml|libzerofree|libzstd|linux|mariadb|mysql|ncurses|netcat|netplan|ntp|openssh|perl|php|plymouth|polkit|pollinate|postfix|python|rsync|sudo|systemd|tar|tcl|tcpdump|telnet|time|tmpreaper|tss|ubuntu|ufw|usb|vim|webmin|wget|whiptail|xml|xymon|xz|yaml|zerofree|zlib|zstd) ]]; then
+    if [[ "$package" =~ ^(acl|adduser|alpine|amd|apache|apparmor|apport|apt|bash|bind9|binutils|bolt|busybox|bzip|certbot|cryptsetup|curl|datetime|dbus|dpkg|eject|fakeroot|fonts|gcc|git|gpg|grep|grub|gzip|htop|init|iproute|iptables|iputils|libacl|libalpine|libamd|libapache|libapparmor|libapt|libbinutils|libbzip|libcryptsetup|libcurl|libdatetime|libgcc|libgpg|libncurses|libnetplan|libntp|libopenssh|libpam|libparted|libperl|libphp|libplymouth|libpolkit|libpostfix|libpython|libsystemd|libtar|libtcl|libtss|libusb|libvim|libwget|libxml|libxymon|libxz|libyaml|libzerofree|libzstd|linux|mariadb|mysql|ncurses|netcat|netplan|ntp|openssh|parted|perl|php|plymouth|polkit|pollinate|postfix|python|rsync|sudo|systemd|tar|tcl|tcpdump|telnet|time|tmpreaper|tss|ubuntu|ufw|usb|vim|webmin|wget|whiptail|xml|xymon|xz|yaml|zerofree|zlib|zstd) ]]; then
         # Already added earlier, so do nothing
 		:
 	# Other
