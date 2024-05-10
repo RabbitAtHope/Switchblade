@@ -98,6 +98,18 @@ echo "==Installed Packages==" >> MediawikiPage.txt
 # -- Get sorted keys from the associative array
 sorted_packages=($(for package in "${!package_versions[@]}"; do echo $package; done | sort))
 # -- Append the package list in bullet-point format, sorted alphabetically, and categorize if possible
+# --- Acl
+echo "===Acl===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(acl|libacl) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- Alpine
 echo "===Alpine===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
@@ -194,10 +206,34 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
+# --- Cryptsetup
+echo "===Cryptsetup===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(cryptsetup|libcryptsetup) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- Curl
 echo "===Curl===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
     if [[ "$package" =~ ^(curl|libcurl) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
+# --- Dpkg
+echo "===Dpkg===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(dpkg) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
@@ -353,7 +389,7 @@ echo "" >> MediawikiPage.txt
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(alpine|amd|apparmor|apt|bash|bind9|binutils|certbot|curl|grub|libalpine|libamd|libapparmor|libapt|libcurl|libncurses|libnetplan|libpostfix|libpython|libsystemd|libvim|libxymon|mariadb|mysql|ncurses|netplan|openssh|perl|postfix|python|systemd|vim|xymon) ]]; then
+    if [[ "$package" =~ ^(acl|alpine|amd|apparmor|apt|bash|bind9|binutils|certbot|cryptsetup|curl|dpkg|grub|libacl|libalpine|libamd|libapparmor|libapt|libcryptsetup|libcurl|libncurses|libnetplan|libpostfix|libpython|libsystemd|libvim|libxymon|mariadb|mysql|ncurses|netplan|openssh|perl|postfix|python|systemd|vim|xymon) ]]; then
         # Already added earlier, so do nothing
 		:
 	# Other
