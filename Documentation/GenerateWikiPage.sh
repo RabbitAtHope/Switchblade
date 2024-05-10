@@ -330,6 +330,18 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
+# --- Class
+echo "===Class===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(class|libclass) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- Cpp
 echo "===Cpp===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
@@ -1299,7 +1311,7 @@ echo "" >> MediawikiPage.txt
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(acl|adduser|algorithm|alpine|amd|apache|apparmor|apport|apt|bash|bind9|binutils|blockdev|bolt|busybox|byobu|bzip|certbot|cpp|cron|cryptsetup|curl|dash|datetime|dbus|dpkg|eject|ethtool|fakeroot|falcon\-sensor|fdisk|file|fonts|g++|gawk|gcc|git|gpg|grep|grub|gzip|hostname|htop|init|iproute|iptables|iputils|libacl|libalgorithm|libalpine|libamd|libapache|libapparmor|libapt|libbinutils|libblockdev|libbzip|libcpp|libcryptsetup|libcurl|libdash|libdatetime|libfdisk|libg++|libgawk|libgcc|libgpg|libncurses|libnetplan|libntp|libopenssh|libpam|libparted|libperl|libphp|libplymouth|libpolkit|libpostfix|libpython|libsystemd|libtar|libtcl|libtss|libusb|libvim|libwget|libxauth|libxml|libxxd|libxymon|libxz|libyaml|libzerofree|libzstd|linux|mariadb|mysql|ncurses|netcat|netplan|ntp|openssh|parted|perl|php|plymouth|polkit|pollinate|postfix|python|rsync|samba|screen|sed|sendemail|sg3|sosreport|sudo|systemd|tar|tcl|tcpdump|telnet|time|tmpreaper|tss|ubuntu|ufw|usb|vim|webmin|wget|whiptail|xauth|xml|xxd|xymon|xz|yaml|ypserv|zerofree|zlib|zstd) ]]; then
+    if [[ "$package" =~ ^(acl|adduser|algorithm|alpine|amd|apache|apparmor|apport|apt|bash|bind9|binutils|blockdev|bolt|busybox|byobu|bzip|certbot|class|cpp|cron|cryptsetup|curl|dash|datetime|dbus|dpkg|eject|ethtool|fakeroot|falcon\-sensor|fdisk|file|fonts|g++|gawk|gcc|git|gpg|grep|grub|gzip|hostname|htop|init|iproute|iptables|iputils|libacl|libalgorithm|libalpine|libamd|libapache|libapparmor|libapt|libbinutils|libblockdev|libbzip|libclass|libcpp|libcryptsetup|libcurl|libdash|libdatetime|libfdisk|libg++|libgawk|libgcc|libgpg|libncurses|libnetplan|libntp|libopenssh|libpam|libparted|libperl|libphp|libplymouth|libpolkit|libpostfix|libpython|libsystemd|libtar|libtcl|libtss|libusb|libvim|libwget|libxauth|libxml|libxxd|libxymon|libxz|libyaml|libzerofree|libzstd|linux|mariadb|mysql|ncurses|netcat|netplan|ntp|openssh|parted|perl|php|plymouth|polkit|pollinate|postfix|python|rsync|samba|screen|sed|sendemail|sg3|sosreport|sudo|systemd|tar|tcl|tcpdump|telnet|time|tmpreaper|tss|ubuntu|ufw|usb|vim|webmin|wget|whiptail|xauth|xml|xxd|xymon|xz|yaml|ypserv|zerofree|zlib|zstd) ]]; then
         # Already added earlier, so do nothing
 		:
 	# Other
