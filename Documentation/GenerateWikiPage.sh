@@ -78,7 +78,7 @@ declare -A package_versions
 # Loop through each package in the list to get its version.
 # 'apt-cache policy' retrieves version information.
 for package in $packages; do
-    version=$(apt-cache policy "$package" | grep 'Installed' | awk '{print $2}')
+    version=$(apt-cache policy "$package" | grep 'Installed' | grep -v 'Listing...' | awk '{print $2}')
     package_versions["$package"]="$version"
 done
 
@@ -340,6 +340,18 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
+# --- Ntp
+echo "===Ntp===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(libntp|ntp) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- OpenSSH
 echo "===OpenSSH===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
@@ -376,6 +388,18 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
+# --- Plymouth
+echo "===Plymouth===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(plymouth) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- Postfix
 echo "===Postfix===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
@@ -392,6 +416,18 @@ echo "" >> MediawikiPage.txt
 echo "===Python===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
     if [[ "$package" =~ ^(libpython|python) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
+# --- Rsync
+echo "===Rsync===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(rsync) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
@@ -460,6 +496,18 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
+# --- Yaml
+echo "===Yaml===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(libyaml|yaml) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- Zlib
 echo "===Zlib===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
@@ -475,7 +523,7 @@ echo "" >> MediawikiPage.txt
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(acl|alpine|amd|apparmor|apt|bash|bind9|binutils|certbot|cryptsetup|curl|dpkg|gcc|gpg|grub|libacl|libalpine|libamd|libapparmor|libapt|libbinutils|libcryptsetup|libcurl|libgcc|libgpg|libncurses|libnetplan|libopenssh|libpam|libperl|libpostfix|libpython|libsystemd|libusb|libvim|libxymon|linux|mariadb|mysql|ncurses|netplan|openssh|perl|postfix|python|systemd|ubuntu|usb|vim|xymon|zlib) ]]; then
+    if [[ "$package" =~ ^(acl|alpine|amd|apparmor|apt|bash|bind9|binutils|certbot|cryptsetup|curl|dpkg|gcc|gpg|grub|libacl|libalpine|libamd|libapparmor|libapt|libbinutils|libcryptsetup|libcurl|libgcc|libgpg|libncurses|libnetplan|libntp|libopenssh|libpam|libperl|libpostfix|libpython|libsystemd|libusb|libvim|libxymon|libyaml|linux|mariadb|mysql|ncurses|netplan|ntp|openssh|perl|plymouth|postfix|python|rsync|systemd|ubuntu|usb|vim|xymon|yaml|zlib) ]]; then
         # Already added earlier, so do nothing
 		:
 	# Other
