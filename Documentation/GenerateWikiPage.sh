@@ -70,7 +70,7 @@ echo -e "[${yellow}Packages${none}]: Gathering package information..."
 # APT
 
 # Get a list of all installed packages and sort them alphabetically.
-packages=$(apt list --installed 2>/dev/null | awk -F/ '{print $1}' | sort)
+packages=$(apt list --installed 2>/dev/null | grep -v 'Listing...' | awk -F/ '{print $1}' | sort)
 
 # Create a new array to store package names and their versions.
 declare -A package_versions
