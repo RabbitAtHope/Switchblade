@@ -489,7 +489,7 @@ echo "" >> MediawikiPage.txt
 # --- G++
 echo "===G++===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(g++|libg++) ]]; then
+    if [[ "$package" =~ ^(g\+\+|libg\+\+) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
