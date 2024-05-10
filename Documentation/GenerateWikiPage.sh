@@ -86,7 +86,7 @@ for package in $packages; do
     # package_versions["$package"]="$version"
 	
     # Extract the relevant lines for the package
-    package_info=$(echo "$all_policies" | grep -A1 "^${package}")
+    package_info=$(echo "$all_policies" | grep -A1 -E "^${package}\$")
 
     # Extract the installed version
     version=$(echo "$package_info" | grep 'Installed' | awk '{print $2}')
