@@ -126,6 +126,18 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
+# --- Adduser
+echo "===Adduser===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(adduser) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- Alpine
 echo "===Alpine===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
@@ -154,6 +166,18 @@ echo "" >> MediawikiPage.txt
 echo "===Apparmor===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
     if [[ "$package" =~ ^(apparmor|libapparmor) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
+# --- Apport
+echo "===Apport===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(apport) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
@@ -210,6 +234,30 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
+# --- Bolt
+echo "===Bolt===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(bolt) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
+# --- Busybox
+echo "===Busybox===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(busybox) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- Certbot
 echo "===Certbot===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
@@ -246,6 +294,18 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
+# --- Dbus
+echo "===Dbus===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(dbus) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- Dpkg
 echo "===Dpkg===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
@@ -258,10 +318,58 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
+# --- Eject
+echo "===Eject===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(eject) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
+# --- Fakeroot
+echo "===Fakeroot===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(fakeroot) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
+# --- Fonts
+echo "===Fonts===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(fonts) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- Gcc
 echo "===Gcc===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
     if [[ "$package" =~ ^(gcc|libgcc) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
+# --- Git
+echo "===Git===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(git) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
@@ -717,7 +825,7 @@ echo "" >> MediawikiPage.txt
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(acl|alpine|amd|apparmor|apt|bash|bind9|binutils|certbot|cryptsetup|curl|dpkg|gcc|gpg|grub|libacl|libalpine|libamd|libapparmor|libapt|libbinutils|libcryptsetup|libcurl|libgcc|libgpg|libncurses|libnetplan|libntp|libopenssh|libpam|libperl|libpostfix|libpython|libsystemd|libtar|libtcl|libtss|libusb|libvim|libxml|libxymon|libyaml|libzstd|linux|mariadb|mysql|ncurses|netplan|ntp|openssh|perl|plymouth|pollinate|postfix|python|rsync|sudo|systemd|tar|tcl|tcpdump|telnet|time|tss|ubuntu|ufw|usb|vim|webmin|wget|whiptail|xml|xymon|xz|yaml|zerofree|zlib|zstd) ]]; then
+    if [[ "$package" =~ ^(acl|adduser|alpine|amd|apparmor|apport|apt|bash|bind9|binutils|bolt|busybox|certbot|cryptsetup|curl|dbus|dpkg|eject|fakeroot|fonts|gcc|git|gpg|grub|libacl|libalpine|libamd|libapparmor|libapt|libbinutils|libcryptsetup|libcurl|libgcc|libgpg|libncurses|libnetplan|libntp|libopenssh|libpam|libperl|libpostfix|libpython|libsystemd|libtar|libtcl|libtss|libusb|libvim|libxml|libxymon|libyaml|libzstd|linux|mariadb|mysql|ncurses|netplan|ntp|openssh|perl|plymouth|pollinate|postfix|python|rsync|sudo|systemd|tar|tcl|tcpdump|telnet|time|tss|ubuntu|ufw|usb|vim|webmin|wget|whiptail|xml|xymon|xz|yaml|zerofree|zlib|zstd) ]]; then
         # Already added earlier, so do nothing
 		:
 	# Other
