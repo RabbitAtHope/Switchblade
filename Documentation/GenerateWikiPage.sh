@@ -583,6 +583,24 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
+# ---- Python other
+echo "====Other Python packages====" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(libpython2|python2) ]]; then
+        # Do nothing
+		:
+    elif [[ "$package" =~ ^(libpython3|python3) ]]; then
+        # Do nothing
+		:
+    elif [[ "$package" =~ ^(libpython|python) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- Rsync
 echo "===Rsync===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
