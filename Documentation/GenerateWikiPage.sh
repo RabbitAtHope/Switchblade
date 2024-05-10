@@ -448,6 +448,18 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
+# --- Tss
+echo "===Tss===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(libtss|tss) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- Ubuntu
 echo "===Ubuntu===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
@@ -535,7 +547,7 @@ echo "" >> MediawikiPage.txt
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(acl|alpine|amd|apparmor|apt|bash|bind9|binutils|certbot|cryptsetup|curl|dpkg|gcc|gpg|grub|libacl|libalpine|libamd|libapparmor|libapt|libbinutils|libcryptsetup|libcurl|libgcc|libgpg|libncurses|libnetplan|libntp|libopenssh|libpam|libperl|libpostfix|libpython|libsystemd|libusb|libvim|libxml|libxymon|libyaml|linux|mariadb|mysql|ncurses|netplan|ntp|openssh|perl|plymouth|postfix|python|rsync|systemd|ubuntu|usb|vim|xml|xymon|yaml|zlib) ]]; then
+    if [[ "$package" =~ ^(acl|alpine|amd|apparmor|apt|bash|bind9|binutils|certbot|cryptsetup|curl|dpkg|gcc|gpg|grub|libacl|libalpine|libamd|libapparmor|libapt|libbinutils|libcryptsetup|libcurl|libgcc|libgpg|libncurses|libnetplan|libntp|libopenssh|libpam|libperl|libpostfix|libpython|libsystemd|libtss|libusb|libvim|libxml|libxymon|libyaml|linux|mariadb|mysql|ncurses|netplan|ntp|openssh|perl|plymouth|postfix|python|rsync|systemd|tss|ubuntu|usb|vim|xml|xymon|yaml|zlib) ]]; then
         # Already added earlier, so do nothing
 		:
 	# Other
