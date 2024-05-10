@@ -560,8 +560,21 @@ done
 echo "" >> MediawikiPage.txt
 # --- Python
 echo "===Python===" >> MediawikiPage.txt
+# ---- Python 2
+echo "====Python 2====" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(libpython|python) ]]; then
+    if [[ "$package" =~ ^(libpython2|python2) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+# ---- Python 3
+echo "====Python 3====" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(libpython3|python3) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
