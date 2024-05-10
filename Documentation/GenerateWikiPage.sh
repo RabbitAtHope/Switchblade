@@ -90,6 +90,8 @@ done
 # DOCUMENTATION OUTPUT
 #//////////////////////////
 
+echo -e "[${yellow}Output${none}]: Writing to file..."
+
 # - Mediawiki page
 echo "" > MediawikiPage.txt # Create file and make sure it's empty
 echo "'''${hostname} (${fqdn} / ${dnsname})''' is a '''${os_details}''' server. Its IP addresses are '''${ipv4}'''." >> MediawikiPage.txt
@@ -197,7 +199,7 @@ echo "" >> MediawikiPage.txt
 # --- Binutils
 echo "===Binutils===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(binutils) ]]; then
+    if [[ "$package" =~ ^(binutils|libbinutils) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
@@ -246,6 +248,18 @@ echo "" >> MediawikiPage.txt
 echo "===Dpkg===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
     if [[ "$package" =~ ^(dpkg) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
+# --- Gcc
+echo "===Gcc===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(gcc|libgcc) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
@@ -329,7 +343,19 @@ echo "" >> MediawikiPage.txt
 # --- OpenSSH
 echo "===OpenSSH===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(openssh) ]]; then
+    if [[ "$package" =~ ^(libopenssh|openssh) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
+# --- Pam
+echo "===Pam===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(libpam|pam) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
@@ -341,7 +367,7 @@ echo "" >> MediawikiPage.txt
 # --- Perl
 echo "===Perl===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(perl) ]]; then
+    if [[ "$package" =~ ^(libperl|perl) ]]; then
         echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
 	# Other
     else
@@ -449,7 +475,7 @@ echo "" >> MediawikiPage.txt
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(acl|alpine|amd|apparmor|apt|bash|bind9|binutils|certbot|cryptsetup|curl|dpkg|gpg|grub|libacl|libalpine|libamd|libapparmor|libapt|libcryptsetup|libcurl|libgpg|libncurses|libnetplan|libpostfix|libpython|libsystemd|libusb|libvim|libxymon|linux|mariadb|mysql|ncurses|netplan|openssh|perl|postfix|python|systemd|ubuntu|usb|vim|xymon|zlib) ]]; then
+    if [[ "$package" =~ ^(acl|alpine|amd|apparmor|apt|bash|bind9|binutils|certbot|cryptsetup|curl|dpkg|gcc|gpg|grub|libacl|libalpine|libamd|libapparmor|libapt|libbinutils|libcryptsetup|libcurl|libgcc|libgpg|libncurses|libnetplan|libopenssh|libpam|libperl|libpostfix|libpython|libsystemd|libusb|libvim|libxymon|linux|mariadb|mysql|ncurses|netplan|openssh|perl|postfix|python|systemd|ubuntu|usb|vim|xymon|zlib) ]]; then
         # Already added earlier, so do nothing
 		:
 	# Other
