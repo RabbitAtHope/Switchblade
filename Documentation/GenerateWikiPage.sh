@@ -79,8 +79,19 @@ echo -e "[${yellow}Packages${none}]: Getting package versions..."
 
 # Loop through each package in the list to get its version.
 # 'apt-cache policy' retrieves version information.
+all_policies=$(apt-cache policy $packages)
 for package in $packages; do
-    version=$(apt-cache policy "$package" | grep 'Installed' | grep -v 'Listing...' | awk '{print $2}')
+
+    # version=$(apt-cache policy "$package" | grep 'Installed' | grep -v 'Listing...' | awk '{print $2}')
+    # package_versions["$package"]="$version"
+	
+    # Extract the relevant lines for the package
+    package_info=$(echo "$all_policies" | grep -A1 "^${package}")
+
+    # Extract the installed version using a single command
+    version=$(echo "$package_info" | awk '/Installed/ {print $2}')
+    
+    # Store the version in the associative array
     package_versions["$package"]="$version"
 done
 
