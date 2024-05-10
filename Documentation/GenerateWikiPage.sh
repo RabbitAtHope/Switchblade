@@ -362,6 +362,30 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
+# --- Ubuntu
+echo "===Ubuntu===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(ubuntu) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
+# --- Usb
+echo "===Usb===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(libusb|usb) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- Vim
 echo "===Vim===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
@@ -386,10 +410,22 @@ for package in "${sorted_packages[@]}"; do
     fi
 done
 echo "" >> MediawikiPage.txt
+# --- Zlib
+echo "===Zlib===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(zlib) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(acl|alpine|amd|apparmor|apt|bash|bind9|binutils|certbot|cryptsetup|curl|dpkg|grub|libacl|libalpine|libamd|libapparmor|libapt|libcryptsetup|libcurl|libncurses|libnetplan|libpostfix|libpython|libsystemd|libvim|libxymon|mariadb|mysql|ncurses|netplan|openssh|perl|postfix|python|systemd|vim|xymon) ]]; then
+    if [[ "$package" =~ ^(acl|alpine|amd|apparmor|apt|bash|bind9|binutils|certbot|cryptsetup|curl|dpkg|grub|libacl|libalpine|libamd|libapparmor|libapt|libcryptsetup|libcurl|libncurses|libnetplan|libpostfix|libpython|libsystemd|libusb|libvim|libxymon|mariadb|mysql|ncurses|netplan|openssh|perl|postfix|python|systemd|ubuntu|usb|vim|xymon|zlib) ]]; then
         # Already added earlier, so do nothing
 		:
 	# Other
