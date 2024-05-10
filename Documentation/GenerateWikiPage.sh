@@ -98,6 +98,18 @@ echo "==Installed Packages==" >> MediawikiPage.txt
 # -- Get sorted keys from the associative array
 sorted_packages=($(for package in "${!package_versions[@]}"; do echo $package; done | sort))
 # -- Append the package list in bullet-point format, sorted alphabetically, and categorize if possible
+# --- Linux kernel / packages
+echo "===Linux===" >> MediawikiPage.txt
+for package in "${sorted_packages[@]}"; do
+    if [[ "$package" =~ ^(linux) ]]; then
+        echo "- '''${package}''' ${package_versions[$package]}" >> MediawikiPage.txt
+	# Other
+    else
+        # Do nothing
+		:
+    fi
+done
+echo "" >> MediawikiPage.txt
 # --- Acl
 echo "===Acl===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
@@ -425,7 +437,7 @@ echo "" >> MediawikiPage.txt
 # --- All other packages
 echo "===Other===" >> MediawikiPage.txt
 for package in "${sorted_packages[@]}"; do
-    if [[ "$package" =~ ^(acl|alpine|amd|apparmor|apt|bash|bind9|binutils|certbot|cryptsetup|curl|dpkg|grub|libacl|libalpine|libamd|libapparmor|libapt|libcryptsetup|libcurl|libncurses|libnetplan|libpostfix|libpython|libsystemd|libusb|libvim|libxymon|mariadb|mysql|ncurses|netplan|openssh|perl|postfix|python|systemd|ubuntu|usb|vim|xymon|zlib) ]]; then
+    if [[ "$package" =~ ^(acl|alpine|amd|apparmor|apt|bash|bind9|binutils|certbot|cryptsetup|curl|dpkg|grub|libacl|libalpine|libamd|libapparmor|libapt|libcryptsetup|libcurl|libncurses|libnetplan|libpostfix|libpython|libsystemd|libusb|libvim|libxymon|linux|mariadb|mysql|ncurses|netplan|openssh|perl|postfix|python|systemd|ubuntu|usb|vim|xymon|zlib) ]]; then
         # Already added earlier, so do nothing
 		:
 	# Other
