@@ -53,7 +53,7 @@ echo ""
 # GENERIC / NONSPECIFIC
 #//////////////////////////
 
-POSSIBLE_LOGIN_URLS=(dnsname+"/login/index.php" dnsname+"/login.php")
+POSSIBLE_LOGIN_URLS=("$dnsname/login/index.php" "$dnsname/login.php")
 
 for LOGIN_URL in "${POSSIBLE_LOGIN_URLS[@]}"; do
 
