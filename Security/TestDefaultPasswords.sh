@@ -39,6 +39,7 @@ echo ""
 # If any of these commands work and give back a username that ISN'T the user you're trying the script from, that account's password should be changed!
 
 echo -e "////////////////////////// ${white}[${none} ${yellow}SSH${none} ${white}]${none} //////////////////////////"
+echo ""
 
 # For each password...
 counter=0
