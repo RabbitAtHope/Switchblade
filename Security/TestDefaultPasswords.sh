@@ -105,7 +105,7 @@ done
 # WORDPRESS
 #//////////////////////////
 
-LOGIN_URL=dnsname+"/wp-login.php"
+LOGIN_URL="$dnsname/wp-login.php"
 
 # Check if it exists
 response_code=$(curl -s -o /dev/null -w "%{http_code}" "$LOGIN_URL")
