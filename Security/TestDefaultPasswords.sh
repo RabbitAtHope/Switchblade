@@ -59,7 +59,7 @@ LOGIN_URL=dnsname+"/wp-login.php"
 
 # Check if it exists
 response_code=$(curl -s -o /dev/null -w "%{http_code}" "$LOGIN_URL")
-if [ "$response_code" == "200" ]; then
+if [ "$response_code" == "401" ]; then
 
     echo "[WordPress] login portal found."
 	
