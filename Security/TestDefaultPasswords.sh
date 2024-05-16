@@ -57,6 +57,8 @@ else
     echo -e "[${yellow}FTP${none}] is [${red}not present and listening for connections${none}] on this server."
 fi
 
+echo ""
+
 #//////////////////////////
 
 # [HTTP/HTTPS]
@@ -135,6 +137,8 @@ for LOGIN_URL in "${POSSIBLE_LOGIN_URLS[@]}"; do
 	fi
 done
 
+echo ""
+
 #//////////////////////////
 # WORDPRESS
 #//////////////////////////
@@ -211,6 +215,8 @@ if [ "$response_code" == "401" ]; then
 else
     :
 fi
+
+echo ""
 
 #//////////////////////////
 
