@@ -124,6 +124,11 @@ if [ "$response_code" == "401" ]; then
 		wordpressusernames=$(curl -s "$USERS_URL" | jq -r '.[].slug')
 		wordpressusernames=($wordpressusernames)
 		wordpressusernames_length=${#wordpressusernames[@]}
+		
+		echo " Found [$wordpressusernames_length] usernames:"
+		for username in "${wordpressusernames[@]}"; do
+			echo " - [$username]"
+		done
 	
 	else
 	
