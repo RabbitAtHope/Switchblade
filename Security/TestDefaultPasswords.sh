@@ -125,7 +125,7 @@ if [ "$response_code" == "401" ]; then
 		wordpressusernames=($wordpressusernames)
 		wordpressusernames_length=${#wordpressusernames[@]}
 		
-		echo -e " Found [$wordpressusernames_length] usernames:"
+		echo -e " Found ${white}[${none}$wordpressusernames_length${white}]${none} usernames:"
 		for username in "${wordpressusernames[@]}"; do
 			echo -e " - [${green}$username${none}]"
 		done
@@ -134,7 +134,7 @@ if [ "$response_code" == "401" ]; then
 	else
 	
 		# Just use some common default WordPress logins.
-		echo -e " Could not access [/wp-json/wp/v2/users], using default usernames instead..."
+		echo -e " Could not access [${yellow}/wp-json/wp/v2/users${none}], using some [common usernames] instead..."
 		wordpressusernames=("adm" "admin" "admin1" "manager" "root" "support" "sysadmin" "test" "user" "wordpress" "wp" "wp-admin" "wpadmin")
 		wordpressusernames_length=${#wordpressusernames[@]}
 	
