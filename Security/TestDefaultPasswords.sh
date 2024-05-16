@@ -25,10 +25,37 @@ none='\033[0m'
 
 # Common passwords that will probably work for any account.
 # Add your own targeted passwords to this list if desired.
-passwords=("123" "1234" "12345" "123456" "1234567" "12345678" "abc123" "abc123!" "adm" "adm123" "adm123!" "admin" "admin123" "admin123!" "admin1234" "admin1234!" "administrator" "administrator123" "administrator123!" "admins" "alpine" "ansible" "baseball" "basketball" "batman" "cadillac" "Changem3" "Changeme" "changem3" "changeme" "cisco" "computer" "computers" "connect" "connection" "cookie" "daniel" "default" "defaultpass" "defaultpassword" "dragon" "ferrari" "final" "football" "fuck" "fuckyou" "hello" "hockey" "hunter" "iloveyou" "letmein" "letmein123" "letmein123!" "library" "linux" "login" "login123" "login123!" "logon" "logon123" "logon123!" "maintenance" "master" "mercedes" "michael" "nproc" "oracle" "oracle123" "oracle123!" "pass" "pass123" "pass123!" "Passw0rd" "Passw0rd123" "Passw0rd123!" "Passw0rd!" "passw0rd" "passw0rd123" "passw0rd123!" "passw0rd!" "passwd" "passwd123" "passwd123!" "password" "password1" "password123" "password123!" "password1234" "password1234!" "pikachu" "placeholder" "placeholder123" "placeholder123!" "pokemon" "qwerty" "qwerty1" "qwerty123" "qwerty123!" "root" "root123" "root123!" "sales" "soccer" "spiderman" "sports" "superman" "support" "support123" "support123!" "sys" "system" "tennis" "test" "test123" "test123!" "test1234" "test1234!" "testpass" "testpassword" "tomcat" "tomcat123" "tomcat123!" "toor" "toor123" "toor123!" "user" "user123" "user123!" "web" "web123" "web123!" "webadmin" "webmaster" "yugioh")
+passwords=("123" "1234" "12345" "123456" "1234567" "12345678" "abc123" "abc123!" "adm" "adm123" "adm123!" "admin" "admin123" "admin123!" "admin1234" "admin1234!" "administrator" "administrator123" "administrator123!" "admins" "alpine" "ansible" "ansible123" "ansible123!" "baseball" "basketball" "batman" "cadillac" "Changem3" "Changeme" "changem3" "changeme" "cisco" "computer" "computers" "connect" "connection" "cookie" "daniel" "default" "defaultpass" "defaultpassword" "dragon" "ferrari" "final" "football" "fuck" "fuckyou" "hello" "hockey" "hunter" "iloveyou" "letmein" "letmein123" "letmein123!" "library" "linux" "login" "login123" "login123!" "logon" "logon123" "logon123!" "maintenance" "master" "mercedes" "michael" "nproc" "oracle" "oracle123" "oracle123!" "pass" "pass123" "pass123!" "Passw0rd" "Passw0rd123" "Passw0rd123!" "Passw0rd!" "passw0rd" "passw0rd123" "passw0rd123!" "passw0rd!" "passwd" "passwd123" "passwd123!" "password" "password1" "password123" "password123!" "password1234" "password1234!" "pikachu" "placeholder" "placeholder123" "placeholder123!" "pokemon" "qwerty" "qwerty1" "qwerty123" "qwerty123!" "root" "root123" "root123!" "sales" "soccer" "spiderman" "sports" "superman" "support" "support123" "support123!" "sys" "system" "tennis" "test" "test123" "test123!" "test1234" "test1234!" "testpass" "testpassword" "tomcat" "tomcat123" "tomcat123!" "toor" "toor123" "toor123!" "user" "user123" "user123!" "web" "web123" "web123!" "webadmin" "webmaster" "yugioh")
 passwords_length=${#passwords[@]}
 
+# Common usernames to test for most accounts (replace with known usernames if you have access to the list of users on the machine)
+usernames=("_apt" "aaron" "abrt" "access" "adam" "adm" "adm0" "adm01" "adm02" "adm03" "adm1" "adm2" "adm3" "admin" "admin1" "admin2" "admin3" "administrator" "alan" "anon" "ansible" "apache" "arpwatch" "auditor" "avahi" "avahi-autoipd" "backup" "bb" "bbs" "bin" "bitnami" "bob" "brian" "charles" "charlie" "checkfs" "checkfsys" "checksys" "chronos" "chrony" "cisco" "class" "classroom" "cmwlogin" "cockpit-ws" "colord" "connect" "couchdb" "cron" "cups-pk-helper" "daemon" "dan" "daniel" "dave" "david" "dbadmin" "dbus" "dean" "deb" "default" "demo" "demos" "diag" "distccd" "dni" "dnsmasq" "doug" "faculty" "fal" "fax" "ftp" "ftpuser" "games" "garcia" "gdm" "george" "gnats" "gnome-initial-setup" "gomez" "gopher" "guest" "guestuser" "halt" "harold" "hplip" "hunter" "inetsim" "informix" "install" "iodine" "irc" "jacob" "james" "jeff" "jet" "jim" "joe" "john" "jon" "joseph" "landscape" "lib" "library" "list" "listen" "lp" "lpadm" "lpadmin" "lxd" "lynx" "mail" "man" "master" "matt" "matthew" "me" "messagebus" "meyers" "michael" "mike" "miredo" "mitch" "mountfs" "mountfsys" "mountsys" "mysql" "nate" "nathan" "news" "noaccess" "nobody" "nobody4" "nproc" "ntp" "omi" "omsagent" "operator" "oracle" "oracle8" "parker" "paul" "peter" "peterson" "pi" "placeholder" "polkitd" "pollinate" "popr" "postfix" "postgres" "postmaster" "printer" "proxy" "public" "pulse" "ray" "reynolds" "richard" "rob" "robert" "roger" "rogers" "root" "ROOT" "rooty" "rpc" "rpcuser" "rtkit" "sales" "service" "setup" "sftp" "sftpuser" "shutdown" "smith" "spencer" "squid" "sshd" "sslh" "sssd" "staff" "stephen" "steve" "steven" "stevens" "stewart" "student" "studio" "super" "superadmin" "superuser" "support" "sync" "sys" "sysadm" "sysadmin" "sysbin" "syslog" "system" "tcpdump" "test" "testuser" "thomas" "tim" "tom" "tomcat" "toor" "trouble" "tss" "tucker" "tyler" "udadmin" "ultra" "umountfs" "umountfsys" "umountsys" "unix" "upload" "usbmux" "user" "uucp" "uucpadm" "uuidd" "vagrant" "varnish" "walter" "web" "webadmin" "webmaster" "white" "whoopsie" "will" "william" "williams" "wright" "www" "www-data" "wwwdata" "xpdb" "xpopr" "xymon" "young" "zabbix" "zachary")
+usernames_length=${#usernames[@]}
+
+#//////////////////////////
+
 echo ""
+
+#//////////////////////////
+
+# [FTP]
+
+echo -e "////////////////////////// ${white}[${none} ${yellow}FTP${none} ${white}]${none} //////////////////////////"
+echo ""
+
+#//////////////////////////
+
+# Check if any service is listening on the FTP port (usually port 21)
+if nc -z localhost 21 &> /dev/null; then
+
+    echo -e "[${yellow}FTP${none}] is present and listening for connections on this server."
+	
+	# Try to login with these credentials.
+	# echo -e "your_username\nyour_password\nquit" | ftp -n localhost
+	
+else
+    echo -e "[${yellow}FTP${none}] is [${red}not present and listening for connections${none}] on this server."
+fi
 
 #//////////////////////////
 
@@ -37,6 +64,8 @@ echo ""
 
 echo -e "////////////////////////// ${white}[${none} ${yellow}HTTP/HTTPS${none} ${white}]${none} //////////////////////////"
 echo ""
+
+#//////////////////////////
 
 # Get the base DNS name of this server to start with
 IP_ADDRESS=$(hostname -I | awk '{print $1}')
@@ -53,8 +82,9 @@ echo ""
 # GENERIC / NONSPECIFIC
 #//////////////////////////
 
-POSSIBLE_LOGIN_URLS=("$dnsname/login/index.php" "$dnsname/login.php")
+POSSIBLE_LOGIN_URLS=("$dnsname/login/index.php" "$dnsname/login.php" "$dnsname/users/sign_in")
 
+# For each possible login portal URL...
 for LOGIN_URL in "${POSSIBLE_LOGIN_URLS[@]}"; do
 
 	# Check if it exists
@@ -182,12 +212,6 @@ fi
 
 echo -e "////////////////////////// ${white}[${none} ${yellow}SSH${none} ${white}]${none} //////////////////////////"
 echo ""
-
-#//////////////////////////
-
-# Usernames to test (replace with known usernames if you have access to the list of users on the machine)
-usernames=("_apt" "aaron" "abrt" "access" "adam" "adm" "adm0" "adm01" "adm02" "adm03" "adm1" "adm2" "adm3" "admin" "admin1" "admin2" "admin3" "administrator" "alan" "anon" "ansible" "apache" "arpwatch" "auditor" "avahi" "avahi-autoipd" "backup" "bb" "bbs" "bin" "bitnami" "bob" "brian" "charles" "charlie" "checkfs" "checkfsys" "checksys" "chronos" "chrony" "cisco" "class" "classroom" "cmwlogin" "cockpit-ws" "colord" "connect" "couchdb" "cron" "cups-pk-helper" "daemon" "dan" "daniel" "dave" "david" "dbadmin" "dbus" "dean" "deb" "default" "demo" "demos" "diag" "distccd" "dni" "dnsmasq" "doug" "faculty" "fal" "fax" "ftp" "ftpuser" "games" "garcia" "gdm" "george" "gnats" "gnome-initial-setup" "gomez" "gopher" "guest" "guestuser" "halt" "harold" "hplip" "hunter" "inetsim" "informix" "install" "iodine" "irc" "jacob" "james" "jeff" "jet" "jim" "joe" "john" "jon" "joseph" "landscape" "lib" "library" "list" "listen" "lp" "lpadm" "lpadmin" "lxd" "lynx" "mail" "man" "master" "matt" "matthew" "me" "messagebus" "meyers" "michael" "mike" "miredo" "mitch" "mountfs" "mountfsys" "mountsys" "mysql" "nate" "nathan" "news" "noaccess" "nobody" "nobody4" "nproc" "ntp" "omi" "omsagent" "operator" "oracle" "oracle8" "parker" "paul" "peter" "peterson" "pi" "placeholder" "polkitd" "pollinate" "popr" "postfix" "postgres" "postmaster" "printer" "proxy" "public" "pulse" "ray" "reynolds" "richard" "rob" "robert" "roger" "rogers" "root" "ROOT" "rooty" "rpc" "rpcuser" "rtkit" "sales" "service" "setup" "sftp" "sftpuser" "shutdown" "smith" "spencer" "squid" "sshd" "sslh" "sssd" "staff" "stephen" "steve" "steven" "stevens" "stewart" "student" "studio" "super" "superadmin" "superuser" "support" "sync" "sys" "sysadm" "sysadmin" "sysbin" "syslog" "system" "tcpdump" "test" "testuser" "thomas" "tim" "tom" "tomcat" "toor" "trouble" "tss" "tucker" "tyler" "udadmin" "ultra" "umountfs" "umountfsys" "umountsys" "unix" "upload" "usbmux" "user" "uucp" "uucpadm" "uuidd" "vagrant" "varnish" "walter" "web" "webadmin" "webmaster" "white" "whoopsie" "will" "william" "williams" "wright" "www" "www-data" "wwwdata" "xpdb" "xpopr" "xymon" "young" "zabbix" "zachary")
-usernames_length=${#usernames[@]}
 
 #//////////////////////////
 
