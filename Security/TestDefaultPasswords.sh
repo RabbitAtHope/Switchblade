@@ -47,6 +47,7 @@ echo ""
 
 # Look for known login portals
 echo -e "Looking for known login portals..."
+echo ""
 
 #//////////////////////////
 # GENERIC / NONSPECIFIC
@@ -58,7 +59,7 @@ for LOGIN_URL in "${POSSIBLE_LOGIN_URLS[@]}"; do
 
 	# Check if it exists
 	response_code=$(curl -s -o /dev/null -w "%{http_code}" "$LOGIN_URL")
-	if [ "$response_code" == "401" ]; then
+	if [[ "$response_code" == "200" || "$response_code" == "401" ]]; then
 
 		echo ""
 		echo -e "[${green}x${none}] [${green}Unknown${none}] login portal found: [${yellow}${LOGIN_URL}${none}]"
@@ -76,10 +77,10 @@ LOGIN_URL=dnsname+"/wp-login.php"
 
 # Check if it exists
 response_code=$(curl -s -o /dev/null -w "%{http_code}" "$LOGIN_URL")
-if [ "$response_code" == "401" ]; then
+if [[ "$response_code" == "200" || "$response_code" == "401" ]]; then
 
-	echo ""
     echo -e "[${green}x${none}] [${lightblue}WordPress${none}] login portal found: [${yellow}${LOGIN_URL}${none}]"
+	echo ""
 	
 	# Try to fetch usernames from /wp-json/wp/v2/users
 	
