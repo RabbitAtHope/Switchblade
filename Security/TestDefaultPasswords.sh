@@ -23,6 +23,13 @@ none='\033[0m'
 
 #//////////////////////////
 
+echo -e "////////////////////////////////////////////////////"
+echo -e "//         [${yellow}DEFAULT PASSWORD TESTING${none}]             //"
+echo -e "////////////////////////////////////////////////////"
+echo ""
+
+#//////////////////////////
+
 # Common passwords that will probably work for any account.
 # Add your own targeted passwords to this list if desired.
 passwords=("123" "1234" "12345" "123456" "1234567" "12345678" "abc123" "abc123!" "adm" "adm123" "adm123!" "admin" "admin123" "admin123!" "admin1234" "admin1234!" "administrator" "administrator123" "administrator123!" "admins" "alpine" "ansible" "ansible123" "ansible123!" "baseball" "basketball" "batman" "cadillac" "Changem3" "Changeme" "changem3" "changeme" "cisco" "computer" "computers" "connect" "connection" "cookie" "daniel" "default" "defaultpass" "defaultpassword" "dragon" "ferrari" "final" "football" "fuck" "fuckyou" "hello" "hockey" "hunter" "iloveyou" "letmein" "letmein123" "letmein123!" "library" "linux" "login" "login123" "login123!" "logon" "logon123" "logon123!" "maintenance" "master" "mercedes" "michael" "nproc" "oracle" "oracle123" "oracle123!" "pass" "pass123" "pass123!" "Passw0rd" "Passw0rd123" "Passw0rd123!" "Passw0rd!" "passw0rd" "passw0rd123" "passw0rd123!" "passw0rd!" "passwd" "passwd123" "passwd123!" "password" "password1" "password123" "password123!" "password1234" "password1234!" "pikachu" "placeholder" "placeholder123" "placeholder123!" "pokemon" "qwerty" "qwerty1" "qwerty123" "qwerty123!" "root" "root123" "root123!" "sales" "soccer" "spiderman" "sports" "superman" "support" "support123" "support123!" "sys" "system" "tennis" "test" "test123" "test123!" "test1234" "test1234!" "testpass" "testpassword" "tomcat" "tomcat123" "tomcat123!" "toor" "toor123" "toor123!" "user" "user123" "user123!" "web" "web123" "web123!" "webadmin" "webmaster" "yugioh")
