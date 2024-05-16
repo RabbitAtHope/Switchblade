@@ -61,7 +61,8 @@ LOGIN_URL=dnsname+"/wp-login.php"
 response_code=$(curl -s -o /dev/null -w "%{http_code}" "$LOGIN_URL")
 if [ "$response_code" == "401" ]; then
 
-    echo "[WordPress] login portal found."
+	echo ""
+    echo " [${lightblue}WordPress${none}] login portal found."
 	
 	# Try to fetch usernames from /wp-json/wp/v2/users
 	
