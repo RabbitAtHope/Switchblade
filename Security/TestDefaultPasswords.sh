@@ -67,7 +67,7 @@ if [ "$response_code" == "401" ]; then
 	
 	# Otherwise, just use some common default WordPress logins
 	wordpressusernames=("adm" "admin" "admin1" "manager" "root" "support" "sysadmin" "test" "user" "wordpress" "wp" "wp-admin" "wpadmin")
-	wordpressusernames_length=${#usernames[@]}
+	wordpressusernames_length=${#wordpressusernames[@]}
 	
 	# For each password...
 	counter=0
