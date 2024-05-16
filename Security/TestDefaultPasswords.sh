@@ -43,6 +43,7 @@ echo ""
 # Get the base DNS name of this server to start with
 IP_ADDRESS=$(hostname -I | awk '{print $1}')
 dnsname=$(nslookup $IP_ADDRESS | grep 'name =' | awk -F'=' '{print $2}' | sed 's/^\s*//g')
+dnsname=${dnsname%.} # Remove period at end
 echo -e "[${yellow}Server DNS Name${none}]: ${dnsname}"
 echo ""
 
@@ -52,7 +53,7 @@ echo -e "Looking for known login portals..."
 #//////////////////////////
 
 # URL of the login page
-LOGIN_URL=""
+LOGIN_URL=dnsname
 
 # For each password...
 counter=0
