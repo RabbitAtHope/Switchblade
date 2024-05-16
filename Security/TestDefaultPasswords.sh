@@ -95,6 +95,9 @@ if [ "$response_code" == "401" ]; then
 		fi
 
 	  done
+	  
+	  echo -e "${orange}]${none}"
+	  
 	done
 else
     :
