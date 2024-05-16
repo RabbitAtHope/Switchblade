@@ -25,7 +25,7 @@ none='\033[0m'
 
 echo ""
 echo -e "////////////////////////////////////////////////////"
-echo -e "//         [${yellow}DEFAULT PASSWORD TESTING${none}]             //"
+echo -e "/          [${yellow}DEFAULT PASSWORD TESTING${none}]              /"
 echo -e "////////////////////////////////////////////////////"
 echo ""
 
@@ -224,7 +224,7 @@ else
     :
 fi
 
-echo "[${yellow}HTTP/HTTPS${none}] Finished looking for login portals."
+echo -e "[${yellow}HTTP/HTTPS${none}] Finished looking for login portals."
 echo ""
 
 #//////////////////////////
@@ -234,6 +234,9 @@ echo ""
 # If any of these commands work and give back a username that ISN'T the user you're trying the script from, that account's password should be changed!
 
 echo -e "////////////////////////// ${white}[${none} ${yellow}SSH${none} ${white}]${none} //////////////////////////"
+echo ""
+
+echo -e "[${yellow}SSH${none}] Testing for default or common SSH accounts and passwords..."
 echo ""
 
 #//////////////////////////
