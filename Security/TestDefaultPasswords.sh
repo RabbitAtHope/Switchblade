@@ -81,7 +81,7 @@ if [ "$response_code" == "401" ]; then
 		echo -e -n "${yellow}=${none}"
 		
 		# Try to login
-		LOGIN_RESPONSE=curl -d "username=$user&password=$pass" -X POST $LOGIN_URL
+		LOGIN_RESPONSE=$(curl -d "username=$user&password=$pass" -X POST $LOGIN_URL)
 		
 		# Check if the response code indicates success (200)
 		if [[ $LOGIN_RESPONSE == *"200" ]]; then
