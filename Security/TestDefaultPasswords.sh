@@ -120,15 +120,16 @@ if [ "$response_code" == "401" ]; then
 	if [ "$response_code" == "200" ]; then
 	
 		# Jackpot! Harvest the user list.
-		echo -e " Harvesting username list from [/wp-json/wp/v2/users]..."
+		echo -e " Harvesting username list from [${yellow}/wp-json/wp/v2/users${none}]..."
 		wordpressusernames=$(curl -s "$USERS_URL" | jq -r '.[].slug')
 		wordpressusernames=($wordpressusernames)
 		wordpressusernames_length=${#wordpressusernames[@]}
 		
-		echo " Found [$wordpressusernames_length] usernames:"
+		echo -e " Found [$wordpressusernames_length] usernames:"
 		for username in "${wordpressusernames[@]}"; do
-			echo " - [$username]"
+			echo -e " - [${green}$username${none}]"
 		done
+		echo ""
 	
 	else
 	
