@@ -88,7 +88,7 @@ if [ "$response_code" == "401" ]; then
 			echo ""
 			echo -e "[${green}Success${none}] Username: [${user}], Password: [${pass}]"
 		else
-			echo -e "[${red}Failed${none}] Login failed. HTTP response code: [$(echo "$LOGIN_RESPONSE" | grep -o '<title>[^<]*</title>' | sed -e 's/<title>\(.*\)<\/title>/\1/')]"
+			echo -e "[${red}Failed${none}] Login failed. HTTP response code: [${red}$(echo "$LOGIN_RESPONSE" | grep -o '<title>[^<]*</title>' | sed -e 's/<title>\(.*\)<\/title>/\1/')${none}]"
 		fi
 
 	  done
