@@ -81,6 +81,10 @@ echo ""
 IP_ADDRESS=$(hostname -I | awk '{print $1}')
 dnsname=$(nslookup $IP_ADDRESS | grep 'name =' | awk -F'=' '{print $2}' | sed 's/^\s*//g')
 dnsname=${dnsname%.} # Remove period at end
+
+# Uncomment this if you want to test a remote server rather than this one.
+#dnsname=""
+
 echo -e "[${yellow}Server DNS Name${none}]: ${dnsname}"
 echo ""
 
