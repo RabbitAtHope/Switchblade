@@ -77,7 +77,7 @@ echo -e "[${yellow}Server DNS Name${none}]: ${dnsname}"
 echo ""
 
 # Look for known login portals
-echo -e "Looking for known login portals..."
+echo -e "[${yellow}HTTP/HTTPS${none}] Looking for known login portals..."
 echo ""
 
 #//////////////////////////
@@ -216,6 +216,7 @@ else
     :
 fi
 
+echo "[${yellow}HTTP/HTTPS${none}] Finished looking for login portals."
 echo ""
 
 #//////////////////////////
