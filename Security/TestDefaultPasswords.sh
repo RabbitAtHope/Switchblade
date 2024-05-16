@@ -63,9 +63,11 @@ if [ "$response_code" == "401" ]; then
 
     echo "[WordPress] login portal found."
 	
-	# Common default WordPress logins
-	usernames=("admin")
-	usernames_length=${#usernames[@]}
+	# Try to fetch usernames from /wp-json/wp/v2/users
+	
+	# Otherwise, just use some common default WordPress logins
+	wordpressusernames=("adm" "admin" "admin1" "manager" "root" "support" "sysadmin" "test" "user" "wordpress" "wp" "wp-admin" "wpadmin")
+	wordpressusernames_length=${#usernames[@]}
 	
 	# For each password...
 	counter=0
@@ -76,7 +78,7 @@ if [ "$response_code" == "401" ]; then
 	  echo -e -n " ${orange}[${none}"
 
 	  # For each username...
-	  for user in "${usernames[@]}"; do
+	  for user in "${wordpressusernames[@]}"; do
 	  
 		echo -e -n "${yellow}=${none}"
 		
@@ -88,7 +90,8 @@ if [ "$response_code" == "401" ]; then
 			echo ""
 			echo -e "[${green}Success${none}] Username: [${user}], Password: [${pass}]"
 		else
-			echo -e "[${red}Failed${none}] Login failed. HTTP response code: [${red}$(echo "$LOGIN_RESPONSE" | grep -o '<title>[^<]*</title>' | sed -e 's/<title>\(.*\)<\/title>/\1/')${none}]"
+			# echo -e "[${red}Failed${none}] Login failed. HTTP response code: [${red}$(echo "$LOGIN_RESPONSE" | grep -o '<title>[^<]*</title>' | sed -e 's/<title>\(.*\)<\/title>/\1/')${none}]"
+			:
 		fi
 
 	  done
