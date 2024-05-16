@@ -34,6 +34,49 @@ echo ""
 
 #//////////////////////////
 
+# [HTTP/HTTPS]
+# Look for common login portals and try some common default username/password combinations for that specific vendor/software.
+
+echo -e "////////////////////////// ${white}[${none} ${yellow}HTTP/HTTPS${none} ${white}]${none} //////////////////////////"
+echo ""
+
+echo -e "Looking for known login portals..."
+
+#//////////////////////////
+
+# URL of the login page
+LOGIN_URL=""
+
+# For each password...
+counter=0
+for pass in "${passwords[@]}"; do
+
+  counter=$((counter+1))
+  echo -e "Trying ${white}[${none}${yellow}${pass}${none}${white}]${none} (${lightpurple}${counter}${none}/${purple}${passwords_length}${none}) against [${lightpurple}${usernames_length}${none}] usernames..."
+  echo -e -n " ${orange}[${none}"
+
+  # For each username...
+  for user in "${usernames[@]}"; do
+  
+	echo -e -n "${yellow}=${none}"
+	
+	# Try to login
+	LOGIN_RESPONSE=curl -d "username=$user&password=$pass" -X POST $LOGIN_URL
+	
+	# Check if the response code indicates success (200)
+	if [[ $LOGIN_RESPONSE == *"200" ]]; then
+		echo ""
+		echo -e "[${green}Success${none}] Username: [${user}], Password: [${pass}]"
+	else
+		# echo "[Failed] Login failed. HTTP response code: $LOGIN_RESPONSE"
+		:
+	fi
+
+  done
+done
+
+#//////////////////////////
+
 # [SSH]
 # Try some common SSH username and password combinations.
 # If any of these commands work and give back a username that ISN'T the user you're trying the script from, that account's password should be changed!
