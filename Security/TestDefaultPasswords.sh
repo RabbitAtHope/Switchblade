@@ -21,8 +21,7 @@ lightcyan='\033[1;36m'
 white='\033[1;37m'
 none='\033[0m'
 
-# Try some common username and password combinations.
-# If any of these commands work and give back a username that ISN'T the user you're trying the script from, that account's password should be changed!
+#//////////////////////////
 
 # Usernames to test (replace with known usernames if you have access to the list of users on the machine)
 usernames=("_apt" "aaron" "abrt" "access" "adam" "adm" "adm0" "adm01" "adm02" "adm03" "adm1" "adm2" "adm3" "admin" "admin1" "admin2" "admin3" "administrator" "alan" "anon" "ansible" "apache" "arpwatch" "auditor" "avahi" "avahi-autoipd" "backup" "bb" "bbs" "bin" "bitnami" "bob" "brian" "charles" "charlie" "checkfs" "checkfsys" "checksys" "chronos" "chrony" "cisco" "class" "classroom" "cmwlogin" "cockpit-ws" "colord" "connect" "couchdb" "cron" "cups-pk-helper" "daemon" "dan" "daniel" "dave" "david" "dbadmin" "dbus" "dean" "deb" "default" "demo" "demos" "diag" "distccd" "dni" "dnsmasq" "doug" "faculty" "fal" "fax" "ftp" "ftpuser" "games" "garcia" "gdm" "george" "gnats" "gnome-initial-setup" "gomez" "gopher" "guest" "guestuser" "halt" "harold" "hplip" "hunter" "inetsim" "informix" "install" "iodine" "irc" "jacob" "james" "jeff" "jet" "jim" "joe" "john" "jon" "joseph" "landscape" "lib" "library" "list" "listen" "lp" "lpadm" "lpadmin" "lxd" "lynx" "mail" "man" "master" "matt" "matthew" "me" "messagebus" "meyers" "michael" "mike" "miredo" "mitch" "mountfs" "mountfsys" "mountsys" "mysql" "nate" "nathan" "news" "noaccess" "nobody" "nobody4" "nproc" "ntp" "omi" "omsagent" "operator" "oracle" "oracle8" "parker" "paul" "peter" "peterson" "pi" "placeholder" "polkitd" "pollinate" "popr" "postfix" "postgres" "postmaster" "printer" "proxy" "public" "pulse" "ray" "reynolds" "richard" "rob" "robert" "roger" "rogers" "root" "ROOT" "rooty" "rpc" "rpcuser" "rtkit" "sales" "service" "setup" "sftp" "sftpuser" "shutdown" "smith" "spencer" "squid" "sshd" "sslh" "sssd" "staff" "stephen" "steve" "steven" "stevens" "stewart" "student" "studio" "super" "superadmin" "superuser" "support" "sync" "sys" "sysadm" "sysadmin" "sysbin" "syslog" "system" "tcpdump" "test" "testuser" "thomas" "tim" "tom" "tomcat" "toor" "trouble" "tss" "tucker" "tyler" "udadmin" "ultra" "umountfs" "umountfsys" "umountsys" "unix" "upload" "usbmux" "user" "uucp" "uucpadm" "uuidd" "vagrant" "varnish" "walter" "web" "webadmin" "webmaster" "white" "whoopsie" "will" "william" "williams" "wright" "www" "www-data" "wwwdata" "xpdb" "xpopr" "xymon" "young" "zabbix" "zachary")
@@ -32,6 +31,14 @@ passwords=("123" "1234" "12345" "123456" "1234567" "12345678" "abc123" "abc123!"
 passwords_length=${#passwords[@]}
 
 echo ""
+
+#//////////////////////////
+
+# [SSH]
+# Try some common SSH username and password combinations.
+# If any of these commands work and give back a username that ISN'T the user you're trying the script from, that account's password should be changed!
+
+echo -e "////////////////////////// ${white}[${none} ${yellow}SSH${none} ${white}]${none} //////////////////////////"
 
 # For each password...
 counter=0
@@ -88,3 +95,5 @@ for pass in "${passwords[@]}"; do
   echo -e "${orange}]${none}"
   
 done
+
+#//////////////////////////
