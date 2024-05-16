@@ -115,6 +115,10 @@ for LOGIN_URL in "${POSSIBLE_LOGIN_URLS[@]}"; do
 			if [[ $LOGIN_RESPONSE == *"200" ]]; then
 				echo ""
 				echo -e "[${green}Success${none}] Username: [${green}${user}${none}], Password: [${green}${pass}${none}]"
+				echo ""
+				
+				# Pause and wait for user input.
+				read -p "Press [${yellow}Enter${none}] to continue..."
 			else
 				# echo -e "[${red}Failed${none}] Login failed. HTTP response code: [${red}$(echo "$LOGIN_RESPONSE" | grep -o '<title>[^<]*</title>' | sed -e 's/<title>\(.*\)<\/title>/\1/')${none}]"
 				:
@@ -190,6 +194,10 @@ if [ "$response_code" == "401" ]; then
 		if [[ $LOGIN_RESPONSE == *"200" ]]; then
 			echo ""
 			echo -e "[${green}Success${none}] Username: [${green}${user}${none}], Password: [${green}${pass}${none}]"
+			echo ""
+				
+			# Pause and wait for user input.
+			read -p "Press [${yellow}Enter${none}] to continue..."
 		else
 			# echo -e "[${red}Failed${none}] Login failed. HTTP response code: [${red}$(echo "$LOGIN_RESPONSE" | grep -o '<title>[^<]*</title>' | sed -e 's/<title>\(.*\)<\/title>/\1/')${none}]"
 			:
@@ -249,6 +257,10 @@ for pass in "${passwords[@]}"; do
         if [[ $list_files != "" ]]; then
 			echo ""
 			echo -e "[${green}Success${none}] Username: [${user}], Password: [${pass}]"
+			echo ""
+				
+			# Pause and wait for user input.
+			read -p "Press [${yellow}Enter${none}] to continue..."
 		else
 			echo ""
 			echo -e "[${green}Possible Success${none}] (No Home Files) Username: [${green}${user}${none}], Password: [${green}${pass}${none}]"
