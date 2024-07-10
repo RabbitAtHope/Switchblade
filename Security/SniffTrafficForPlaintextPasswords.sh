@@ -64,16 +64,20 @@ echo ""
 #//////////////////////////
 
 # Pass
+sudo tcpdump -r $OUTPUT_FILE -A | grep -i "Pass ="
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "Pass:"
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "Pass="
 # pass
+sudo tcpdump -r $OUTPUT_FILE -A | grep -i "pass ="
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "pass:"
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "pass="
 
 # Passwd
+sudo tcpdump -r $OUTPUT_FILE -A | grep -i "Passwd ="
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "Passwd:"
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "Passwd="
 # passwd
+sudo tcpdump -r $OUTPUT_FILE -A | grep -i "passwd ="
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "passwd:"
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "passwd="
 
@@ -87,12 +91,15 @@ sudo tcpdump -r $OUTPUT_FILE -A | grep -i "password:"
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "password="
 
 # PWD
+sudo tcpdump -r $OUTPUT_FILE -A | grep -i "PWD ="
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "PWD:"
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "PWD="
 # Pwd
+sudo tcpdump -r $OUTPUT_FILE -A | grep -i "Pwd ="
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "Pwd:"
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "Pwd="
 # pwd
+sudo tcpdump -r $OUTPUT_FILE -A | grep -i "pwd ="
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "pwd:"
 sudo tcpdump -r $OUTPUT_FILE -A | grep -i "pwd="
 
