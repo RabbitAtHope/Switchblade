@@ -26,6 +26,7 @@ echo -e "[${yellow}Preparation${none}] Making sure [tcpdump] is installed..."
 
 # Install tcpdump if it isn't installed already.
 sudo apt-get install tcpdump 2> /dev/null
+sudo yum install tcpdump 2> /dev/null
 
 echo -e "[${green}Success${none}] The [tcpdump] library is installed."
 
