@@ -23,7 +23,7 @@ echo ""
 #//////////////////////////
 
 # ServerSignature
-echo -e "Checking the [${yellow}ServerSignature${none}] setting, which should be set to [Off]..."
+echo -e "Checking the [${yellow}ServerSignature${none}] setting, which should be set to [${yellow}Off${none}]..."
 
 cat /etc/apache2/apache2.conf 2>/dev/null | grep "ServerSignature" | grep -v "#ServerSignature"  | grep -v "# ServerSignature"
 cat /etc/apache2/conf-enabled/security.conf 2>/dev/null | grep "ServerSignature" | grep -v "#ServerSignature"  | grep -v "# ServerSignature"
@@ -35,7 +35,7 @@ echo ""
 #//////////////////////////
 
 # ServerTokens
-echo -e "Checking the [${yellow}ServerTokens${none}] setting, which should be set to [Prod]..."
+echo -e "Checking the [${yellow}ServerTokens${none}] setting, which should be set to [${yellow}Prod${none}]..."
 
 cat /etc/apache2/apache2.conf 2>/dev/null | grep "ServerTokens" | grep -v "#ServerTokens"  | grep -v "# ServerTokens"
 cat /etc/apache2/conf-enabled/security.conf 2>/dev/null | grep "ServerTokens" | grep -v "#ServerTokens"  | grep -v "# ServerTokens"
