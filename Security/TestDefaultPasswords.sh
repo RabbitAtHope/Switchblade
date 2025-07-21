@@ -116,9 +116,9 @@ for LOGIN_URL in "${POSSIBLE_LOGIN_URLS[@]}"; do
 		
 			# Jackpot! Harvest the user list.
 			echo -e " Harvesting username list from [${yellow}/wp-json/wp/v2/users${none}]..."
-			wordpressusernames=$(curl -s "$USERS_URL" | jq -r '.[].slug')
-			wordpressusernames=($wordpressusernames)
-			wordpressusernames_length=${#wordpressusernames[@]}
+			usernames=$(curl -s "$USERS_URL" | jq -r '.[].slug')
+			usernames=($usernames)
+			usernames_length=${#usernames[@]}
 			
 			echo -e " Found ${white}[${none}$wordpressusernames_length${white}]${none} usernames:"
 			for username in "${wordpressusernames[@]}"; do
@@ -130,8 +130,8 @@ for LOGIN_URL in "${POSSIBLE_LOGIN_URLS[@]}"; do
 		
 			# Just use some common default web logins.
 			echo -e " Could not access [${yellow}/wp-json/wp/v2/users${none}], using some [common usernames] instead..."
-			wordpressusernames=("adm" "admin" "admin1" "manager" "root" "support" "sysadmin" "test" "user" "wordpress" "wp" "wp-admin" "wpadmin")
-			wordpressusernames_length=${#wordpressusernames[@]}
+			usernames=("adm" "admin" "admin1" "manager" "root" "support" "sysadmin" "test" "user" "wordpress" "wp" "wp-admin" "wpadmin")
+			usernames_length=${#usernames[@]}
 		
 		fi
 		
