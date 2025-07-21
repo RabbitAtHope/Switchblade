@@ -128,7 +128,7 @@ for LOGIN_URL in "${POSSIBLE_LOGIN_URLS[@]}"; do
 			# Check if the response code indicates success (200)
 			if [[ $LOGIN_RESPONSE == *"200" ]]; then
 				echo ""
-				echo -e "[${green}Success${none}] Username: [${green}${user}${none}], Password: [${green}${pass}${none}]"
+				echo -e "[${red}!${none}] Username: [${red}${user}${none}], Password: [${red}${pass}${none}]"
 				echo ""
 				
 				# Pause and wait for user input.
@@ -209,7 +209,7 @@ if [ "$response_code" == "401" ]; then
 		# Check if the response code indicates success (200)
 		if [[ $LOGIN_RESPONSE == *"200" ]]; then
 			echo ""
-			echo -e "[${green}Success${none}] Username: [${green}${user}${none}], Password: [${green}${pass}${none}]"
+			echo -e "[${red}!${none}] Username: [${red}${user}${none}], Password: [${red}${pass}${none}]"
 			echo ""
 				
 			# Pause and wait for user input.
@@ -282,7 +282,7 @@ for pass in "${passwords[@]}"; do
         
         if [[ $list_files != "" ]]; then
 			echo ""
-			echo -e "[${green}Success${none}] Username: [${user}], Password: [${pass}]"
+			echo -e "[${red}!${none}] Username: [${red}${user}${none}], Password: [${red}${pass}${none}]"
 			echo ""
 				
 			# Pause and wait for user input.
